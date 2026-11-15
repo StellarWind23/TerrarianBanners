@@ -14,14 +14,14 @@ public class TBComponentTypes {
 
     protected static DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES;
 
-    public static RegistrySupplier<DataComponentType<Identifier>> BANNER_MOB;
+    public static RegistrySupplier<DataComponentType<Identifier>> MOB_BANNER;
 
     public static void init() {
         DATA_COMPONENT_TYPES = DeferredRegister.create(TerrarianBanners.MOD_ID, Registries.DATA_COMPONENT_TYPE);
 
         //Register stuff here ▼▼▼
 
-        BANNER_MOB = registerComponent("banner_mob", (builder) -> builder
+        MOB_BANNER = registerComponent("MOB_BANNER", (builder) -> builder
                 .persistent(Identifier.CODEC)
                 .networkSynchronized(Identifier.STREAM_CODEC));
 

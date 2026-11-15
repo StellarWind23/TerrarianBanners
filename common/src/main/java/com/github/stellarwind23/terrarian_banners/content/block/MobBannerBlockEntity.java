@@ -51,16 +51,17 @@ public class MobBannerBlockEntity extends BlockEntity {
     @Override
     protected void applyImplicitComponents(@NonNull DataComponentGetter components) {
         super.applyImplicitComponents(components);
-        mob = components.get(TBComponentTypes.BANNER_MOB.get());
+        mob = components.get(TBComponentTypes.MOB_BANNER.get());
     }
 
     // Block entity -> item (ctrl+pick block, loot tables)
     @Override
     protected void collectImplicitComponents(DataComponentMap.@NonNull Builder builder) {
         super.collectImplicitComponents(builder);
-        if (mob != null) builder.set(TBComponentTypes.BANNER_MOB.get(), mob);
+        if (mob != null) builder.set(TBComponentTypes.MOB_BANNER.get(), mob);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void removeComponentsFromTag(ValueOutput output) {
         output.discard("mob");
