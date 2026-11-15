@@ -25,7 +25,7 @@ public class TBTab {
 
         //Register stuff here ▼▼▼
 
-        TAB = registerTab("terrarian_banners", () -> new ItemStack(new DeferredItem<>(TBItems.TEMPLATE_BLOCK)));
+        TAB = registerTab("terrarian_banners", () -> new ItemStack(new DeferredItem<>(TBItems.MOB_BANNER)));
 
         //Register stuff here ▲▲▲
 

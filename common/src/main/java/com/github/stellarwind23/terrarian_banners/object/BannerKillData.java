@@ -1,4 +1,4 @@
-package com.github.stellarwind23.terrarian_banners.client.object;
+package com.github.stellarwind23.terrarian_banners.object;
 
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.mojang.serialization.Codec;

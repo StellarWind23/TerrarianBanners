@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.content;
 
-import com.github.stellarwind23.terrarian_banners.client.object.MobBannerItem;
+import com.github.stellarwind23.terrarian_banners.object.MobBannerItem;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.github.stellarwind23.terrarian_banners.util.MItem;
 import com.github.stellarwind23.terrarian_banners.util.MTranslation;
@@ -26,7 +26,9 @@ public class TBItems {
 
         //Register stuff here ▼▼▼
 
-        MOB_BANNER = registerItem("mob_banner", props -> new MobBannerItem(props));
+        MOB_BANNER = registerItem("mob_banner", new MItem<>("none",
+                props -> new MobBannerItem(TBBlocks.MOB_BANNER.get(), TBBlocks.MOB_WALL_BANNER.get(), props),
+                Optional.of(new Item.Properties().stacksTo(16))));
 
         //Register stuff here ▲▲▲
 
