@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "terrarian_banners:item/mob_banner"
+  }
+}

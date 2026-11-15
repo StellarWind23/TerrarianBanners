@@ -20,13 +20,13 @@ public class MobBannerItem extends StandingAndWallBlockItem {
 
     public static ItemStack createStack(EntityType<?> type) {
         ItemStack stack = new ItemStack(TBItems.MOB_BANNER.get());
-        stack.set(TBComponentTypes.BANNER_MOB.get(), BuiltInRegistries.ENTITY_TYPE.getKey(type));
+        stack.set(TBComponentTypes.MOB_BANNER.get(), BuiltInRegistries.ENTITY_TYPE.getKey(type));
         return stack;
     }
 
     @Override
     public @NonNull Component getName(ItemStack stack) {
-        Identifier id = stack.get(TBComponentTypes.BANNER_MOB.get());
+        Identifier id = stack.get(TBComponentTypes.MOB_BANNER.get());
         if (id != null) {
             var type = BuiltInRegistries.ENTITY_TYPE.getOptional(id);
             if (type.isPresent()) {

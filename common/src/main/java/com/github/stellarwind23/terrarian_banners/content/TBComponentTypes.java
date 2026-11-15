@@ -21,7 +21,7 @@ public class TBComponentTypes {
 
         //Register stuff here ▼▼▼
 
-        MOB_BANNER = registerComponent("MOB_BANNER", (builder) -> builder
+        MOB_BANNER = registerComponent("mob_banner", (builder) -> builder
                 .persistent(Identifier.CODEC)
                 .networkSynchronized(Identifier.STREAM_CODEC));
 

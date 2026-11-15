@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.function.Supplier;
 
-public final class TemplateFabric implements ModInitializer {
+public final class TerrarianBannersFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {

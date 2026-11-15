@@ -20,6 +20,7 @@ public class MModelProvider extends FabricModelProvider {
         for(MBlock<?> mBlock : MBlock.MOD_BLOCKS) {
             if(MBlock.REGISTERED_MOD_BLOCKS.get(mBlock) == null) continue;
             switch (mBlock.modelType()) {
+                case "banner" -> blockStateModelGenerator.createBanner();
                 default -> blockStateModelGenerator.createTrivialCube(MBlock.REGISTERED_MOD_BLOCKS.get(mBlock));
             }
         }
