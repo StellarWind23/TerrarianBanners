@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.content;
 
-import com.github.stellarwind23.terrarian_banners.object.MobBannerItem;
+import com.github.stellarwind23.terrarian_banners.content.item.MobBannerItem;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.github.stellarwind23.terrarian_banners.util.MItem;
 import com.github.stellarwind23.terrarian_banners.util.MTranslation;

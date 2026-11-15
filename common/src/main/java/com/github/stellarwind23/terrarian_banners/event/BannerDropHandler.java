@@ -1,7 +1,7 @@
 package com.github.stellarwind23.terrarian_banners.event;
 
-import com.github.stellarwind23.terrarian_banners.object.BannerKillData;
-import com.github.stellarwind23.terrarian_banners.object.MobBannerItem;
+import com.github.stellarwind23.terrarian_banners.util.BannerKillData;
+import com.github.stellarwind23.terrarian_banners.content.item.MobBannerItem;
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;
 import dev.architectury.event.EventResult;

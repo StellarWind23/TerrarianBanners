@@ -1,8 +1,8 @@
 package com.github.stellarwind23.terrarian_banners.content;
 
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
-import com.github.stellarwind23.terrarian_banners.object.MobBannerBlock;
-import com.github.stellarwind23.terrarian_banners.object.MobWallBannerBlock;
+import com.github.stellarwind23.terrarian_banners.content.block.MobBannerBlock;
+import com.github.stellarwind23.terrarian_banners.content.block.MobWallBannerBlock;
 import com.github.stellarwind23.terrarian_banners.util.MBlock;
 import com.github.stellarwind23.terrarian_banners.util.MBlockProps;
 import dev.architectury.registry.registries.DeferredRegister;

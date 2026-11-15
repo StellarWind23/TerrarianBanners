@@ -1,4 +1,4 @@
-package com.github.stellarwind23.terrarian_banners.object;
+package com.github.stellarwind23.terrarian_banners.content.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.BaseEntityBlock;

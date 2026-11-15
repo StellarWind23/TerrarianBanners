@@ -1,4 +1,4 @@
-package com.github.stellarwind23.terrarian_banners.object;
+package com.github.stellarwind23.terrarian_banners.content.item;
 
 import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBItems;
