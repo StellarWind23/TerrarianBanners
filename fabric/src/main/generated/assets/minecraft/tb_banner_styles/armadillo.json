@@ -8,7 +8,7 @@
     "texture": "terrarian_banners:entity/mob_banner/base/default"
   },
   "icon": {
-    "texture": "terrarian_banners:entity/mob_banner/icon/armadillo"
+    "texture": "terrarian_banners:entity/mob_banner/icon/default"
   },
   "secondary": {
     "color": "#824848",

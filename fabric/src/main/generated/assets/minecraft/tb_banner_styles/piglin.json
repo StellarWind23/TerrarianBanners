@@ -8,7 +8,7 @@
     "texture": "terrarian_banners:entity/mob_banner/base/default"
   },
   "icon": {
-    "texture": "terrarian_banners:entity/mob_banner/icon/piglin"
+    "texture": "terrarian_banners:entity/mob_banner/icon/default"
   },
   "secondary": {
     "color": "#F9F3A4",

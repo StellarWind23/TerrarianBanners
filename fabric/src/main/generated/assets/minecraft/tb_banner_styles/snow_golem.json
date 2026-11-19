@@ -8,7 +8,7 @@
     "texture": "terrarian_banners:entity/mob_banner/base/default"
   },
   "icon": {
-    "texture": "terrarian_banners:entity/mob_banner/icon/snow_golem"
+    "texture": "terrarian_banners:entity/mob_banner/icon/default"
   },
   "secondary": {
     "color": "#81A4A4",

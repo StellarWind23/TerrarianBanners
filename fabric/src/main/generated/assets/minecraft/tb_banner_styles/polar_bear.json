@@ -8,7 +8,7 @@
     "texture": "terrarian_banners:entity/mob_banner/base/default"
   },
   "icon": {
-    "texture": "terrarian_banners:entity/mob_banner/icon/polar_bear"
+    "texture": "terrarian_banners:entity/mob_banner/icon/default"
   },
   "secondary": {
     "color": "#D5D6CD",
