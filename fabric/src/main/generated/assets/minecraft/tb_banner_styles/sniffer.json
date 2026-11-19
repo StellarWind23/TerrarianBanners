@@ -1,0 +1,17 @@
+{
+  "accent": {
+    "color": "#FFFFFF",
+    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+  },
+  "base": {
+    "color": "#871E09",
+    "texture": "terrarian_banners:entity/mob_banner/base/default"
+  },
+  "icon": {
+    "texture": "terrarian_banners:entity/mob_banner/icon/sniffer"
+  },
+  "secondary": {
+    "color": "#25AB70",
+    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+  }
+}

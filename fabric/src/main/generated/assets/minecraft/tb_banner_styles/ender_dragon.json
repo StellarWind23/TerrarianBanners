@@ -1,0 +1,17 @@
+{
+  "accent": {
+    "color": "#FFFFFF",
+    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+  },
+  "base": {
+    "color": "#1C1C1C",
+    "texture": "terrarian_banners:entity/mob_banner/base/default"
+  },
+  "icon": {
+    "texture": "terrarian_banners:entity/mob_banner/icon/ender_dragon"
+  },
+  "secondary": {
+    "color": "#E079FA",
+    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+  }
+}

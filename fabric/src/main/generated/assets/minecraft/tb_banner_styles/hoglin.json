@@ -1,0 +1,17 @@
+{
+  "accent": {
+    "color": "#FFFFFF",
+    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+  },
+  "base": {
+    "color": "#C66E55",
+    "texture": "terrarian_banners:entity/mob_banner/base/default"
+  },
+  "icon": {
+    "texture": "terrarian_banners:entity/mob_banner/icon/hoglin"
+  },
+  "secondary": {
+    "color": "#5F6464",
+    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+  }
+}

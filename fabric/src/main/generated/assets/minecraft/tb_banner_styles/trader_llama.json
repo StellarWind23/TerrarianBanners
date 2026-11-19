@@ -1,0 +1,17 @@
+{
+  "accent": {
+    "color": "#FFFFFF",
+    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+  },
+  "base": {
+    "color": "#EAA430",
+    "texture": "terrarian_banners:entity/mob_banner/base/default"
+  },
+  "icon": {
+    "texture": "terrarian_banners:entity/mob_banner/icon/trader_llama"
+  },
+  "secondary": {
+    "color": "#456296",
+    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+  }
+}

@@ -1,9 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen;
 
-import com.github.stellarwind23.terrarian_banners.fabric.datagen.provider.MBlockLootProvider;
-import com.github.stellarwind23.terrarian_banners.fabric.datagen.provider.MEnglishUSLangProvider;
-import com.github.stellarwind23.terrarian_banners.fabric.datagen.provider.MModelProvider;
-import com.github.stellarwind23.terrarian_banners.fabric.datagen.provider.MTagProvider;
+import com.github.stellarwind23.terrarian_banners.fabric.datagen.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import org.jspecify.annotations.NonNull;
@@ -20,5 +17,6 @@ public class TerrarianBannersFabricDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(MEnglishUSLangProvider::new);
         pack.addProvider(MTagProvider::new);
         pack.addProvider(MBlockLootProvider::new);
+        pack.addProvider(MBannerStyleProvider::new);
     }
 }

@@ -1,0 +1,17 @@
+{
+  "accent": {
+    "color": "#FFFFFF",
+    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+  },
+  "base": {
+    "color": "#6D533D",
+    "texture": "terrarian_banners:entity/mob_banner/base/default"
+  },
+  "icon": {
+    "texture": "terrarian_banners:entity/mob_banner/icon/tadpole"
+  },
+  "secondary": {
+    "color": "#160A00",
+    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+  }
+}
