@@ -1,12 +1,14 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
 import com.github.stellarwind23.terrarian_banners.util.MBlock;
+import com.github.stellarwind23.terrarian_banners.util.MBlockGroup;
 import com.github.stellarwind23.terrarian_banners.util.MItem;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 public class MModelProvider extends FabricModelProvider {
@@ -16,12 +18,16 @@ public class MModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(@NonNull BlockModelGenerators blockStateModelGenerator) {
-        for(MBlock<?> mBlock : MBlock.MOD_BLOCKS) {
-            if(MBlock.REGISTERED_MOD_BLOCKS.get(mBlock) == null) continue;
-            switch (mBlock.modelType()) {
-                case "banner" -> blockStateModelGenerator.createBanner();
-                default -> blockStateModelGenerator.createTrivialCube(MBlock.REGISTERED_MOD_BLOCKS.get(mBlock));
+    public void generateBlockStateModels(@NonNull BlockModelGenerators gen) {
+        for (MBlockGroup group : MBlockGroup.MOD_GROUPS) {
+            switch (group.modelType()) {
+                case "none" -> { }
+                case "banner" -> {
+                    // particle-only model for both blocks; the BER draws the cloth
+                    gen.createParticleOnlyBlock(group.get("standing"), Blocks.WHITE_WOOL);
+                    gen.createParticleOnlyBlock(group.get("wall"), Blocks.WHITE_WOOL);
+                }
+                default -> group.all().forEach(gen::createTrivialCube);
             }
         }
     }
