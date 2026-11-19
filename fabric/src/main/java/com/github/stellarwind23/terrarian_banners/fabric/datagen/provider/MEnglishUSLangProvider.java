@@ -4,6 +4,9 @@ import com.github.stellarwind23.terrarian_banners.util.MTranslation;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import org.jspecify.annotations.NonNull;
 import oshi.util.tuples.Pair;
 
@@ -20,6 +23,13 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
         for(MTranslation translation : MTranslation.MOD_TRANSLATIONS) {
             Pair<String, String> t = translation.createTranslation();
             translationBuilder.add(t.getA(), t.getB());
+        }
+
+        // Everything hostile by default
+        for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
+            if (type.getCategory() == MobCategory.MONSTER) {
+                translationBuilder.add("item.terrarian_banners.mob_banner" + type.getDescriptionId().replaceFirst("entity", ""), type.getDescription().getString() + " Banner");
+            }
         }
     }
 }

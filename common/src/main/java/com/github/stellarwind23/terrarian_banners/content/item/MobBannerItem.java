@@ -30,7 +30,7 @@ public class MobBannerItem extends StandingAndWallBlockItem {
         if (id != null) {
             var type = BuiltInRegistries.ENTITY_TYPE.getOptional(id);
             if (type.isPresent()) {
-                return Component.translatable(getDescriptionId() + ".named", type.get().getDescription());
+                return Component.translatable(getDescriptionId() + type.get().getDescriptionId().replaceFirst("entity", ""));
             }
         }
         return super.getName(stack);
