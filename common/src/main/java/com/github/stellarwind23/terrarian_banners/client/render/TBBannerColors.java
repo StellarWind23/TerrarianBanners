@@ -7,8 +7,6 @@ import net.minecraft.network.chat.TextColor;
 
 public record TBBannerColors(TextColor base, TextColor secondary, TextColor accent) {
 
-    public static final Codec<Integer> COLOR = TextColor.CODEC.xmap(TextColor::getValue, TextColor::fromRgb);
-
     public static final Codec<TBBannerColors> CODEC = RecordCodecBuilder.create(i -> i.group(
             TextColor.CODEC.fieldOf("base").forGetter(TBBannerColors::base),
             TextColor.CODEC.fieldOf("secondary").forGetter(TBBannerColors::secondary),

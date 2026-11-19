@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.ARGB;
 
 public final class TBMobBannerDrawer {
 
@@ -104,9 +105,10 @@ public final class TBMobBannerDrawer {
     private static void cloth(PoseStack ps, SubmitNodeCollector out, Identifier texture, TextColor color, int layer, int light) {
         float z = FLAG_HALF_T + layer * LAYER_STEP;
         out.submitCustomGeometry(ps, RenderTypes.entityCutoutNoCull(texture), (pose, vc) -> {
-            rect(pose, vc, light, -FLAG_W / 2, -FLAG_H, FLAG_W / 2, 0, z, false, color.getValue(),
+
+            rect(pose, vc, light, -FLAG_W / 2, -FLAG_H, FLAG_W / 2, 0, z, false, ARGB.opaque(color.getValue()),
                     FRONT_U0 / TEX, FLAG_V0 / TEX, FRONT_U1 / TEX, FLAG_V1 / TEX);
-            rect(pose, vc, light, -FLAG_W / 2, -FLAG_H, FLAG_W / 2, 0, -z, true, color.getValue(),
+            rect(pose, vc, light, -FLAG_W / 2, -FLAG_H, FLAG_W / 2, 0, -z, true, ARGB.opaque(color.getValue()),
                     BACK_U0 / TEX, FLAG_V0 / TEX, BACK_U1 / TEX, FLAG_V1 / TEX);
         });
     }
