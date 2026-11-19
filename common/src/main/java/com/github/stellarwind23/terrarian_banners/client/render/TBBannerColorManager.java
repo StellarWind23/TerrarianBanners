@@ -33,14 +33,6 @@ public class TBBannerColorManager extends SimpleJsonResourceReloadListener<TBBan
     public TBBannerColors get(@Nullable Identifier mob) {
         if (mob == null) return TBBannerColors.NEUTRAL;
         TBBannerColors defined = colors.get(mob);
-        return defined != null ? defined : fallbacks.computeIfAbsent(mob, TBBannerColorManager::generate);
-    }
-
-    private static TBBannerColors generate(Identifier id) {
-        float hue = ((id.hashCode() & 0x7FFFFFFF) % 360) / 360.0F;
-        return new TBBannerColors(
-                Mth.hsvToRgb(hue, 0.65F, 0.55F),
-                Mth.hsvToRgb(hue, 0.45F, 0.85F),
-                Mth.hsvToRgb(hue, 0.30F, 0.15F));
+        return defined != null ? defined : TBBannerColors.NEUTRAL;
     }
 }
