@@ -23,7 +23,7 @@ public class MTagProvider extends FabricTagProvider.EntityTypeTagProvider {
 
         // Everything hostile by default
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (type.getCategory() == MobCategory.MONSTER) tag.add(type);
+            tag.add(type);
         }
     }
 }

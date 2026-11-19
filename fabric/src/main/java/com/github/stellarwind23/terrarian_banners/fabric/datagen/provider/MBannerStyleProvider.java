@@ -128,7 +128,7 @@ public class MBannerStyleProvider implements DataProvider {
     }
 
     // ---- Layer helpers ----
-    private static Layer i(EntityType<?> type) { return Layer.asset("entity/mob_banner/icon/default" + BuiltInRegistries.ENTITY_TYPE.getKey(type).getPath()); }
+    private static Layer i(EntityType<?> type) { return Layer.asset("entity/mob_banner/icon/" + BuiltInRegistries.ENTITY_TYPE.getKey(type).getPath()); }
     private static Layer b(String name, int rgb) { return Layer.asset("entity/mob_banner/base/" + name).withColor(rgb); }
     private static Layer s(String name, int rgb) { return Layer.asset("entity/mob_banner/secondary/" + name).withColor(rgb); }
     private static Layer a(String name, int rgb) { return Layer.asset("entity/mob_banner/accent/" + name).withColor(rgb); }
