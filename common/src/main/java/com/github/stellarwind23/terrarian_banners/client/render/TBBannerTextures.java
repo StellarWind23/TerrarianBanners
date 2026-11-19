@@ -92,7 +92,7 @@ public final class TBBannerTextures {
     }
 
     private static @Nullable NativeImage load(TBBannerStyle.Layer layer) {
-        Identifier path = layer.texture().withPrefix("textures/entity/mob_banner/").withSuffix(".png");
+        Identifier path = layer.texture().withPrefix("textures/").withSuffix(".png");
         var resource = Minecraft.getInstance().getResourceManager().getResource(path);
         if (resource.isEmpty()) {
             if (WARNED.add(path)) TerrarianBanners.LOGGER.warn("Missing banner layer texture: {}", path);

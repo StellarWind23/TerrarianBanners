@@ -27,7 +27,6 @@ public class TBMobBannerRenderer implements BlockEntityRenderer<MobBannerBlockEn
 
     @Override
     public void extractRenderState(@NonNull MobBannerBlockEntity be, @NonNull TBMobBannerRenderState state, float partialTick, @NonNull Vec3 cameraPos, ModelFeatureRenderer.@Nullable CrumblingOverlay crumbling) {
-        assert crumbling != null;
         BlockEntityRenderer.super.extractRenderState(be, state, partialTick, cameraPos, crumbling);
 
         BlockState bs = be.getBlockState();
@@ -39,7 +38,7 @@ public class TBMobBannerRenderer implements BlockEntityRenderer<MobBannerBlockEn
         // Same sway formula vanilla banners use
         long time = be.getLevel() != null ? be.getLevel().getGameTime() : 0L;
         BlockPos p = be.getBlockPos();
-        float f = ((float) Math.floorMod((long) (p.getX() * 7L + p.getY() * 9L + p.getZ() * 13L) + time, 100L) + partialTick) / 100.0F;
+        float f = ((float) Math.floorMod(p.getX() * 7L + p.getY() * 9L + p.getZ() * 13L + time, 100L) + partialTick) / 100.0F;
         state.sway = (-0.0125F + 0.01F * Mth.cos(Mth.TWO_PI * f)) * Mth.PI;
 
         state.texture = TBBannerTextures.get(TBBannerStyleManager.INSTANCE.get(be.getMob()));
