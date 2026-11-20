@@ -1,17 +1,23 @@
 {
-  "accent": {
-    "color": "light_purple",
-    "texture": "terrarian_banners:entity/mob_banner/accent/default"
-  },
-  "base": {
-    "color": "black",
-    "texture": "terrarian_banners:entity/mob_banner/base/default"
-  },
-  "icon": {
-    "texture": "terrarian_banners:entity/mob_banner/icon/default"
-  },
-  "secondary": {
-    "color": "dark_purple",
-    "texture": "terrarian_banners:entity/mob_banner/secondary/default"
-  }
+  "layers": [
+    {
+      "color": "black",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/default"
+    },
+    {
+      "color": "dark_purple",
+      "name": "secondary",
+      "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+    },
+    {
+      "color": "light_purple",
+      "name": "accent",
+      "texture": "terrarian_banners:entity/mob_banner/accent/default"
+    },
+    {
+      "name": "icon",
+      "texture": "terrarian_banners:entity/mob_banner/icon/default"
+    }
+  ]
 }

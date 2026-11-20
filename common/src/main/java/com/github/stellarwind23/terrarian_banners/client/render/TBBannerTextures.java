@@ -22,14 +22,8 @@ public final class TBBannerTextures {
 
     private static final int SIZE = 64;
 
-    // Icon placement in texels: 16x16, centred in the 20-wide front (x 1..21) and back (x 22..42) regions
-    private static final int ICON_Y = 9;
-    private static final int FRONT_ICON_X = 3;
-    private static final int BACK_ICON_X = 24;
-
     // A real, loadable path for the moments before the first reload has finished
-    private static final Identifier FALLBACK =
-            TBBannerStyle.DEFAULT_BASE.texture().withPrefix("textures/").withSuffix(".png");
+    private static final Identifier FALLBACK = TBBannerStyle.DEFAULT_BASE.texture().withPrefix("textures/").withSuffix(".png");
 
     private static Map<Identifier, Identifier> byMob = Map.of();
     private static Identifier neutral = FALLBACK;
@@ -75,32 +69,27 @@ public final class TBBannerTextures {
         }
 
         private Identifier bake(TBBannerStyle style) {
-            NativeImage image = new NativeImage(SIZE, SIZE, true);   // zero-filled, so fully transparent
+            NativeImage image = new NativeImage(SIZE, SIZE, true);
 
-            composite(image, style.base(), 0, 0);
-            composite(image, style.secondary(), 0, 0);
-            composite(image, style.accent(), 0, 0);
-            composite(image, style.icon(), FRONT_ICON_X, ICON_Y);
-            composite(image, style.icon(), BACK_ICON_X, ICON_Y);
+            for (TBBannerStyle.Layer layer : style.layers()) {
+                composite(image, layer);
+            }
 
             Identifier id = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "dynamic/banner/" + nextId++);
             Minecraft.getInstance().getTextureManager().register(id, new DynamicTexture(id::toString, image));
             return id;
         }
 
-        private void composite(NativeImage dst, TBBannerStyle.Layer layer, int ox, int oy) {
+        private void composite(NativeImage dst, TBBannerStyle.Layer layer) {
             NativeImage src = source(layer);
             if (src == null) return;
 
             int tint = layer.tint();
-            for (int y = 0; y < src.getHeight(); y++) {
-                for (int x = 0; x < src.getWidth(); x++) {
-                    int dx = ox + x, dy = oy + y;
-                    if (dx >= SIZE || dy >= SIZE) continue;
-
+            for (int y = 0; y < Math.min(src.getHeight(), SIZE); y++) {
+                for (int x = 0; x < Math.min(src.getWidth(), SIZE); x++) {
                     int s = ARGB.multiply(src.getPixel(x, y), tint);
                     if (ARGB.alpha(s) == 0) continue;
-                    dst.setPixel(dx, dy, over(s, dst.getPixel(dx, dy)));
+                    dst.setPixel(x, y, over(s, dst.getPixel(x, y)));
                 }
             }
         }
@@ -120,6 +109,10 @@ public final class TBBannerTextures {
             }
             try (InputStream in = resource.get().open()) {
                 NativeImage image = NativeImage.read(in);
+                if (image.getWidth() != SIZE || image.getHeight() != SIZE) {
+                    TerrarianBanners.LOGGER.warn("Banner layer {} is {}x{}, expected {}x{}",
+                            path, image.getWidth(), image.getHeight(), SIZE, SIZE);
+                }
                 sources.put(path, image);
                 return image;
             } catch (IOException e) {

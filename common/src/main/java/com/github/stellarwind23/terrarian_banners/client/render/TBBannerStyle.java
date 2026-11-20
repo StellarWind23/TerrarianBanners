@@ -2,55 +2,89 @@ package com.github.stellarwind23.terrarian_banners.client.render;
 
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
 
-import java.util.Optional;
+import java.util.*;
 
-public record TBBannerStyle(Layer icon, Layer base, Layer secondary, Layer accent) {
+/** Layers are drawn in list order: the first is the bottom layer, the last is on top. */
+public record TBBannerStyle(List<Layer> layers) {
 
-    public record Layer(Identifier texture, Optional<TextColor> color) {
+    public static TBBannerStyle fromLayers(Layer... layers) {
+        return new TBBannerStyle(Arrays.stream(layers).toList());
+    }
 
-        private static final Codec<Layer> FULL = RecordCodecBuilder.create(i -> i.group(
+    public TBBannerStyle {
+        layers = List.copyOf(layers);
+    }
+
+    /** One full 64x64 sheet in vanilla's banner layout, optionally tinted. */
+    public record Layer(String name, Identifier texture, Optional<TextColor> color) {
+
+        public static final Codec<Layer> CODEC = RecordCodecBuilder.create(i -> i.group(
+                Codec.STRING.fieldOf("name").forGetter(Layer::name),
                 Identifier.CODEC.fieldOf("texture").forGetter(Layer::texture),
                 TextColor.CODEC.optionalFieldOf("color").forGetter(Layer::color)
         ).apply(i, Layer::new));
 
-        // A bare "namespace:path" string is shorthand for an untinted layer
-        public static final Codec<Layer> CODEC = Codec.withAlternative(FULL,
-                Identifier.CODEC.xmap(id -> new Layer(id, Optional.empty()), Layer::texture));
-
-        /** A texture in this mod's namespace, e.g. asset("entity/mob_banner/base/default"). */
-        public static Layer asset(String path) {
-            return new Layer(Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, path), Optional.empty());
+        /** A texture in this mod's namespace, e.g. asset("base", "entity/mob_banner/base/default"). */
+        public static Layer asset(String name, String path) {
+            return new Layer(name, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, path), Optional.empty());
         }
 
-        public Layer withColor(TextColor color) { return new Layer(texture, Optional.of(color)); }
+        public Layer withColor(TextColor color) { return new Layer(name, texture, Optional.of(color)); }
         public Layer withColor(int rgb) { return withColor(TextColor.fromRgb(rgb)); }
 
-        /** Vertex colour: opaque ARGB, or white (no tint) if no colour is set. */
+        /** Opaque ARGB, or white (no tint) if no colour is set. */
         public int tint() {
             return color.map(c -> 0xFF000000 | c.getValue()).orElse(-1);
         }
     }
 
-    public static final Layer DEFAULT_ICON      = Layer.asset("entity/mob_banner/icon/default");
-    public static final Layer DEFAULT_BASE      = Layer.asset("entity/mob_banner/base/default");
-    public static final Layer DEFAULT_SECONDARY = Layer.asset("entity/mob_banner/secondary/default");
-    public static final Layer DEFAULT_ACCENT    = Layer.asset("entity/mob_banner/accent/default");
+    public static final Layer DEFAULT_BASE      = Layer.asset("base", "entity/mob_banner/base/default");
+    public static final Layer DEFAULT_SECONDARY = Layer.asset("secondary", "entity/mob_banner/secondary/default");
+    public static final Layer DEFAULT_ACCENT    = Layer.asset("accent", "entity/mob_banner/accent/default");
+    public static final Layer DEFAULT_ICON      = Layer.asset("icon", "entity/mob_banner/icon/default");
 
     public static final Codec<TBBannerStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
-            Layer.CODEC.fieldOf("icon").forGetter(TBBannerStyle::icon),
-            Layer.CODEC.optionalFieldOf("base", DEFAULT_BASE).forGetter(TBBannerStyle::base),
-            Layer.CODEC.optionalFieldOf("secondary", DEFAULT_SECONDARY).forGetter(TBBannerStyle::secondary),
-            Layer.CODEC.optionalFieldOf("accent", DEFAULT_ACCENT).forGetter(TBBannerStyle::accent)
+            Layer.CODEC.listOf().validate(TBBannerStyle::checkUniqueNames)
+                    .fieldOf("layers").forGetter(TBBannerStyle::layers)
     ).apply(i, TBBannerStyle::new));
 
-    public static final TBBannerStyle NEUTRAL = new TBBannerStyle(
+    public static final TBBannerStyle NEUTRAL = classic(
             DEFAULT_ICON,
             DEFAULT_BASE.withColor(TextColor.fromLegacyFormat(ChatFormatting.BLACK)),
             DEFAULT_SECONDARY.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_PURPLE)),
             DEFAULT_ACCENT.withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)));
+
+    /** The four-slot shape: base, secondary and accent from the bottom up, with the icon on top. */
+    public static TBBannerStyle classic(Layer icon, Layer base, Layer secondary, Layer accent) {
+        return new TBBannerStyle(List.of(base, secondary, accent, icon));
+    }
+
+    /** Replaces the layer with the same name in place, or adds it on top if there isn't one. */
+    public TBBannerStyle with(Layer layer) {
+        List<Layer> out = new ArrayList<>(layers);
+        for (int i = 0; i < out.size(); i++) {
+            if (out.get(i).name().equals(layer.name())) {
+                out.set(i, layer);
+                return new TBBannerStyle(out);
+            }
+        }
+        out.add(layer);
+        return new TBBannerStyle(out);
+    }
+
+    private static DataResult<List<Layer>> checkUniqueNames(List<Layer> layers) {
+        Set<String> seen = new HashSet<>();
+        for (Layer layer : layers) {
+            if (!seen.add(layer.name())) {
+                return DataResult.error(() -> "Duplicate banner layer name: " + layer.name());
+            }
+        }
+        return DataResult.success(layers);
+    }
 }
