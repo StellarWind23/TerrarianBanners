@@ -41,7 +41,7 @@ public class TBMobBannerRenderer implements BlockEntityRenderer<MobBannerBlockEn
         float f = ((float) Math.floorMod(p.getX() * 7L + p.getY() * 9L + p.getZ() * 13L + time, 100L) + partialTick) / 100.0F;
         state.sway = (-0.0125F + 0.01F * Mth.cos(Mth.TWO_PI * f)) * Mth.PI;
 
-        state.texture = TBBannerTextures.get(TBBannerStyleManager.INSTANCE.get(be.getMob()));
+        state.texture = TBBannerTextures.forMob(be.getMob());
     }
 
     @Override

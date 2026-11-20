@@ -2,6 +2,7 @@ package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
 import com.github.stellarwind23.terrarian_banners.client.render.TBBannerStyle;
 import com.github.stellarwind23.terrarian_banners.client.render.TBBannerStyle.Layer;
+import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -31,7 +32,12 @@ public class MBannerStyleProvider implements DataProvider {
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
         Map<Identifier, TBBannerStyle> styles = new LinkedHashMap<>();
 
-        // 2. Hand-written styles replace the generated ones
+        //Populate with default
+        for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
+            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NEUTRAL);
+        }
+
+        //Hand written styles replace the generated ones
         addStyles(styles);
 
         List<CompletableFuture<?>> writes = new ArrayList<>();
@@ -47,7 +53,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.ARMADILLO, new TBBannerStyle(i(EntityType.ARMADILLO), b("default", 0xad716d), s("default", 0x824848), a("default", 0xFFFFFF)));
         put(out, EntityType.AXOLOTL, new TBBannerStyle(i(EntityType.AXOLOTL), b("default", 0xfbc1e3), s("default", 0xa62d74), a("default", 0xFFFFFF)));
         put(out, EntityType.BAT, new TBBannerStyle(i(EntityType.BAT), b("default", 0x4c3e30), s("default", 0x0f0f0f), a("default", 0xFFFFFF)));
-        put(out, EntityType.BEE, new TBBannerStyle(i(EntityType.BEE), b("default", 0xedc343), s("default", 0x43241b), a("default", 0xFFFFFF)));
+        put(out, EntityType.BEE, new TBBannerStyle(i(EntityType.BEE), b("default", 0xedc343), s("default", 0x43241b), a("comb", 0xFC9600)));
         put(out, EntityType.BLAZE, new TBBannerStyle(i(EntityType.BLAZE), b("default", 0xf6b201), s("default", 0xfff87e), a("default", 0xFFFFFF)));
         put(out, EntityType.BOGGED, new TBBannerStyle(i(EntityType.BOGGED), b("default", 0x8a9c72), s("default", 0x314d1b), a("default", 0xFFFFFF)));
         put(out, EntityType.BREEZE, new TBBannerStyle(i(EntityType.BREEZE), b("default", 0xaf94df), s("default", 0x9166df), a("default", 0xFFFFFF)));
@@ -124,7 +130,6 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.ZOMBIE_HORSE, new TBBannerStyle(i(EntityType.ZOMBIE_HORSE), b("default", 0x315234), s("default", 0x97c284), a("default", 0xFFFFFF)));
         put(out, EntityType.ZOMBIE_VILLAGER, new TBBannerStyle(i(EntityType.ZOMBIE_VILLAGER), b("default", 0x563c33), s("default", 0x799c65), a("default", 0xFFFFFF)));
         put(out, EntityType.ZOMBIFIED_PIGLIN, new TBBannerStyle(i(EntityType.ZOMBIFIED_PIGLIN), b("default", 0xea9393), s("default", 0x4c7129), a("default", 0xFFFFFF)));
-
     }
 
     // ---- Layer helpers ----

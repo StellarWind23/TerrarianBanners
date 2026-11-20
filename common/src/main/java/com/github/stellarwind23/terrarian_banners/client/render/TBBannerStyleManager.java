@@ -10,6 +10,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBannerStyle> {
 
@@ -22,25 +23,15 @@ public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBan
     }
 
     @Override
-    protected void apply(
-            @NonNull Map<Identifier, TBBannerStyle> prepared,
-            @NonNull ResourceManager manager,
-            @NonNull ProfilerFiller profiler
-    ) {
+    protected void apply(@NonNull Map<Identifier, TBBannerStyle> prepared,
+                         @NonNull ResourceManager manager,
+                         @NonNull ProfilerFiller profiler) {
         styles = Map.copyOf(prepared);
-
-        TerrarianBanners.LOGGER.info(
-                "Loaded {} banner styles: {}",
-                styles.size(),
-                styles.keySet()
-        );
-
-        TBBannerTextures.clear();
+        TerrarianBanners.LOGGER.info("Loaded {} banner styles", styles.size());
+        TBBannerTextures.reload(styles, manager);
     }
 
     public TBBannerStyle get(@Nullable Identifier mob) {
-        if (mob == null) return TBBannerStyle.NEUTRAL;
-        TBBannerStyle defined = styles.get(mob);
-        return defined != null ? defined : TBBannerStyle.NEUTRAL;
+        return mob == null ? TBBannerStyle.NEUTRAL : styles.getOrDefault(mob, TBBannerStyle.NEUTRAL);
     }
 }

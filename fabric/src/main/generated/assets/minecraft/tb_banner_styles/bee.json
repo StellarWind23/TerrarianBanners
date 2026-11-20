@@ -1,7 +1,7 @@
 {
   "accent": {
-    "color": "#FFFFFF",
-    "texture": "terrarian_banners:entity/mob_banner/accent/default"
+    "color": "#FC9600",
+    "texture": "terrarian_banners:entity/mob_banner/accent/comb"
   },
   "base": {
     "color": "#EDC343",

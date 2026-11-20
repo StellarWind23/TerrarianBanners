@@ -1,5 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
+import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.github.stellarwind23.terrarian_banners.util.MTranslation;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -27,7 +28,7 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
 
         // Everything hostile by default
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (type.getCategory() == MobCategory.MONSTER) {
+            if(TerrarianBanners.isBannerMob(type)) {
                 translationBuilder.add("item.terrarian_banners.mob_banner" + type.getDescriptionId().replaceFirst("entity", ""), type.getDescription().getString() + " Banner");
             }
         }

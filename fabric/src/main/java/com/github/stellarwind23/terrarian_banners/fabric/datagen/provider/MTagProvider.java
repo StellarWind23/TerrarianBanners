@@ -1,6 +1,7 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
+import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -23,7 +24,7 @@ public class MTagProvider extends FabricTagProvider.EntityTypeTagProvider {
 
         // Everything hostile by default
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            tag.add(type);
+            if (TerrarianBanners.isBannerMob(type)) tag.add(type);
         }
     }
 }
