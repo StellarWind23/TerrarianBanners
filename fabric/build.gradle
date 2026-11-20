@@ -30,6 +30,12 @@ tasks.matching { it.name == 'runDatagen' }.configureEach {
     dependsOn 'cleanDatagen'
 }
 
+tasks.matching { it.name == 'runDatagen' }.configureEach {
+    doLast {
+        project.delete(file("src/main/generated/assets/terrarian_banners/items/mob_banner.json"))
+    }
+}
+
 configurations {
     common {
         canBeResolved = true

@@ -23,7 +23,6 @@ public class MModelProvider extends FabricModelProvider {
             switch (group.modelType()) {
                 case "none" -> { }
                 case "banner" -> {
-                    // particle-only model for both blocks; the BER draws the cloth
                     gen.createParticleOnlyBlock(group.get("standing"), Blocks.WHITE_WOOL);
                     gen.createParticleOnlyBlock(group.get("wall"), Blocks.WHITE_WOOL);
                 }
