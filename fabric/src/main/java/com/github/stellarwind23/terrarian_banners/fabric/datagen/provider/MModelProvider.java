@@ -37,6 +37,7 @@ public class MModelProvider extends FabricModelProvider {
         for(MItem<?> mItem : MItem.MOD_ITEMS) {
             if(MItem.REGISTERED_MOD_ITEMS.get(mItem) == null) continue;
             switch (mItem.modelType()) {
+                case "none" -> { }
                 case "handheld" -> itemModelGenerator.generateFlatItem(MItem.REGISTERED_MOD_ITEMS.get(mItem), ModelTemplates.FLAT_HANDHELD_ITEM);
                 default -> itemModelGenerator.generateFlatItem(MItem.REGISTERED_MOD_ITEMS.get(mItem), ModelTemplates.FLAT_ITEM);
             }
