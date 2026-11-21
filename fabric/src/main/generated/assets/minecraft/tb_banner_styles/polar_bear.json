@@ -6,6 +6,11 @@
       "texture": "terrarian_banners:entity/mob_banner/base/default"
     },
     {
+      "color": "#F5FDFD",
+      "name": "hill",
+      "texture": "terrarian_banners:entity/mob_banner/detail/hill"
+    },
+    {
       "color": "#D5D6CD",
       "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"

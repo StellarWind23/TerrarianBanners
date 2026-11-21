@@ -1,15 +1,18 @@
 {
   "layers": [
     {
+      "color": "black",
       "name": "base",
       "texture": "terrarian_banners:entity/mob_banner/base/default"
     },
     {
-      "name": "secondary",
+      "color": "dark_purple",
+      "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
-      "name": "accent",
+      "color": "light_purple",
+      "name": "thin_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     },
     {

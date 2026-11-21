@@ -29,12 +29,6 @@ public class MobBannerBlockEntity extends BlockEntity {
 
     public @Nullable Identifier getMob() { return mob; }
 
-    public void setMob(@Nullable Identifier mob) {
-        this.mob = mob;
-        setChanged();
-        if (level != null) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-    }
-
     @Override
     protected void saveAdditional(@NonNull ValueOutput output) {
         super.saveAdditional(output);

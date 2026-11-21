@@ -7,8 +7,8 @@
     },
     {
       "color": "#AEBB74",
-      "name": "islands",
-      "texture": "terrarian_banners:entity/mob_banner/detail/islands"
+      "name": "island",
+      "texture": "terrarian_banners:entity/mob_banner/detail/island"
     },
     {
       "color": "#CC00FA",

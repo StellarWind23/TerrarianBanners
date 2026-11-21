@@ -54,9 +54,7 @@ public class MobBannerBlock extends AbstractMobBannerBlock {
     }
 
     @Override
-    protected @NonNull BlockState updateShape(@NonNull BlockState state, @NonNull LevelReader level, @NonNull ScheduledTickAccess ticks,
-                                              @NonNull BlockPos pos, @NonNull Direction dir, @NonNull BlockPos neighborPos,
-                                              @NonNull BlockState neighborState, @NonNull RandomSource random) {
+    protected @NonNull BlockState updateShape(@NonNull BlockState state, @NonNull LevelReader level, @NonNull ScheduledTickAccess ticks, @NonNull BlockPos pos, @NonNull Direction dir, @NonNull BlockPos neighborPos, @NonNull BlockState neighborState, @NonNull RandomSource random) {
         if (dir == Direction.DOWN && !state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
         return super.updateShape(state, level, ticks, pos, dir, neighborPos, neighborState, random);
     }
