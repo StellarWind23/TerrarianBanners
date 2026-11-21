@@ -97,7 +97,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.PIGLIN, TBBannerStyle.fromLayers(b("default", 0x995f40), d("border", 0xf9f3a4), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN)));
         put(out, EntityType.PIGLIN_BRUTE, TBBannerStyle.fromLayers(b("default", 0x592a10), d("border", 0xf9f3a4), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN_BRUTE)));
         put(out, EntityType.PILLAGER, TBBannerStyle.fromLayers(b("default", 0x532f36), d("border", 0x959b9b), d("thin_border", 0xFFFFFF), e(EntityType.PILLAGER)));
-        put(out, EntityType.POLAR_BEAR, TBBannerStyle.fromLayers(b("default", 0xeeeede), d("border", 0xd5d6cd), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.POLAR_BEAR)));
+        put(out, EntityType.POLAR_BEAR, TBBannerStyle.fromLayers(b("default", 0xeeeede), d("border", 0xd5d6cd), d("thin_border", 0xFFFFFF), e(EntityType.POLAR_BEAR)));
         put(out, EntityType.PUFFERFISH, TBBannerStyle.fromLayers(b("default", 0xf6b201), d("border", 0x37c3f2), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.PUFFERFISH)));
         put(out, EntityType.RABBIT, TBBannerStyle.fromLayers(b("default", 0x995f40), d("border", 0x734831), d("thin_border", 0xFFFFFF), e(EntityType.RABBIT)));
         put(out, EntityType.RAVAGER, TBBannerStyle.fromLayers(b("default", 0x757470), d("border", 0x5b5049), d("thin_border", 0xFFFFFF), e(EntityType.RAVAGER)));
