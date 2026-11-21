@@ -3,7 +3,7 @@
     {
       "color": "#4C3E30",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/night"
+      "texture": "terrarian_banners:entity/mob_banner/base/cave"
     },
     {
       "color": "#0F0F0F",
