@@ -6,7 +6,7 @@
       "texture": "terrarian_banners:entity/mob_banner/base/cave"
     },
     {
-      "color": "#FFF87E",
+      "color": "#7C2806",
       "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },

@@ -1,7 +1,7 @@
 {
   "layers": [
     {
-      "color": "#161616",
+      "color": "#7B4788",
       "name": "base",
       "texture": "terrarian_banners:entity/mob_banner/base/night"
     },
