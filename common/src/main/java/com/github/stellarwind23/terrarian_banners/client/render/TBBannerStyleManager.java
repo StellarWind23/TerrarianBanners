@@ -10,7 +10,6 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
-import java.util.Objects;
 
 public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBannerStyle> {
 

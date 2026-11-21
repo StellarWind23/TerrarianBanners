@@ -38,7 +38,7 @@ public record TBBannerStyle(List<Layer> layers) {
         public Layer withColor(TextColor color) { return new Layer(name, texture, Optional.of(color)); }
         public Layer withColor(int rgb) { return withColor(TextColor.fromRgb(rgb)); }
 
-        /** Opaque ARGB, or white (no tint) if no colour is set. */
+        /** Opaque ARGB, or white (no tint) if no color is set. */
         public int tint() {
             return color.map(c -> 0xFF000000 | c.getValue()).orElse(-1);
         }
@@ -56,24 +56,6 @@ public record TBBannerStyle(List<Layer> layers) {
             Layer.asset("thin_border", "entity/mob_banner/detail/thin_border").withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)),
             Layer.asset("emblem", "entity/mob_banner/emblem/default")
     );
-
-    /** The four-slot shape: base, secondary and accent from the bottom up, with the emblem on top. */
-    public static TBBannerStyle classic(Layer icon, Layer base, Layer secondary, Layer accent) {
-        return new TBBannerStyle(List.of(base, secondary, accent, icon));
-    }
-
-    /** Replaces the layer with the same name in place, or adds it on top if there isn't one. */
-    public TBBannerStyle with(Layer layer) {
-        List<Layer> out = new ArrayList<>(layers);
-        for (int i = 0; i < out.size(); i++) {
-            if (out.get(i).name().equals(layer.name())) {
-                out.set(i, layer);
-                return new TBBannerStyle(out);
-            }
-        }
-        out.add(layer);
-        return new TBBannerStyle(out);
-    }
 
     private static DataResult<List<Layer>> checkUniqueNames(List<Layer> layers) {
         Set<String> seen = new HashSet<>();

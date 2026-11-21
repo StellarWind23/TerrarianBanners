@@ -1,6 +1,5 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
-import com.github.stellarwind23.terrarian_banners.util.MBlock;
 import com.github.stellarwind23.terrarian_banners.util.MBlockGroup;
 import com.github.stellarwind23.terrarian_banners.util.MItem;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;

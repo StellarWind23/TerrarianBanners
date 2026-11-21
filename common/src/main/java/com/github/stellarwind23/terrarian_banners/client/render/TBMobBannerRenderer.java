@@ -26,8 +26,7 @@ public class TBMobBannerRenderer implements BlockEntityRenderer<MobBannerBlockEn
     public @NonNull TBMobBannerRenderState createRenderState() { return new TBMobBannerRenderState(); }
 
     @Override
-    public void extractRenderState(@NonNull MobBannerBlockEntity be, @NonNull TBMobBannerRenderState state, float partialTick, @NonNull Vec3 cameraPos, ModelFeatureRenderer.@Nullable CrumblingOverlay crumbling) {
-        BlockEntityRenderer.super.extractRenderState(be, state, partialTick, cameraPos, crumbling);
+    public void extractRenderState(@NonNull MobBannerBlockEntity be, @NonNull TBMobBannerRenderState state, float partialTick, @NonNull Vec3 cameraPos, ModelFeatureRenderer.@Nullable CrumblingOverlay crumbling) {BlockEntityRenderer.super.extractRenderState(be, state, partialTick, cameraPos, crumbling);
 
         BlockState bs = be.getBlockState();
         state.standing = bs.getBlock() instanceof MobBannerBlock;

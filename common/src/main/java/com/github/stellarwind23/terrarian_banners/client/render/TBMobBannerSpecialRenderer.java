@@ -29,7 +29,7 @@ public class TBMobBannerSpecialRenderer implements SpecialModelRenderer<Identifi
     public void submit(@Nullable Identifier texture, @NonNull ItemDisplayContext context, @NonNull PoseStack ps, @NonNull SubmitNodeCollector out, int light, int overlay, boolean foil, int outlineColor) {
         if (texture == null) return;
         ps.pushPose();
-        ps.translate(0.5, 0.0, 0.5);   // block-centre convention, same as the block entity renderer
+        ps.translate(0.5, 0.0, 0.5);
         TBMobBannerDrawer.submit(ps, out, true, texture, 0.0F, light);
         ps.popPose();
     }

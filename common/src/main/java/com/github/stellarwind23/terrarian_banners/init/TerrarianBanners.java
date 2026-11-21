@@ -8,7 +8,6 @@ import com.github.stellarwind23.terrarian_banners.event.BannerDropHandler;
 import dev.architectury.event.events.common.EntityEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.DefaultAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
