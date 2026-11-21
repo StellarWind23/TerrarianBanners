@@ -47,7 +47,7 @@ public record TBBannerStyle(List<Layer> layers) {
     public static final Layer DEFAULT_BASE      = Layer.asset("base", "entity/mob_banner/base/default");
     public static final Layer DEFAULT_SECONDARY = Layer.asset("secondary", "entity/mob_banner/secondary/default");
     public static final Layer DEFAULT_ACCENT    = Layer.asset("accent", "entity/mob_banner/accent/default");
-    public static final Layer DEFAULT_ICON      = Layer.asset("icon", "entity/mob_banner/icon/default");
+    public static final Layer DEFAULT_ICON      = Layer.asset("emblem", "entity/mob_banner/emblem/default");
 
     public static final Codec<TBBannerStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
             Layer.CODEC.listOf().validate(TBBannerStyle::checkUniqueNames)
@@ -60,7 +60,7 @@ public record TBBannerStyle(List<Layer> layers) {
             DEFAULT_SECONDARY.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_PURPLE)),
             DEFAULT_ACCENT.withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)));
 
-    /** The four-slot shape: base, secondary and accent from the bottom up, with the icon on top. */
+    /** The four-slot shape: base, secondary and accent from the bottom up, with the emblem on top. */
     public static TBBannerStyle classic(Layer icon, Layer base, Layer secondary, Layer accent) {
         return new TBBannerStyle(List.of(base, secondary, accent, icon));
     }

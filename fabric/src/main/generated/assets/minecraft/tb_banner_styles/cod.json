@@ -1,8 +1,8 @@
 {
   "layers": [
     {
-      "name": "icon",
-      "texture": "terrarian_banners:entity/mob_banner/icon/cod"
+      "name": "emblem",
+      "texture": "terrarian_banners:entity/mob_banner/emblem/cod"
     },
     {
       "color": "#C1A76A",
@@ -11,13 +11,13 @@
     },
     {
       "color": "#E5C48B",
-      "name": "secondary",
-      "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#FFFFFF",
-      "name": "accent",
-      "texture": "terrarian_banners:entity/mob_banner/accent/default"
+      "name": "thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     }
   ]
 }

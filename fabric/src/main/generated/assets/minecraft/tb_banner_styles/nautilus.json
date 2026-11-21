@@ -16,8 +16,8 @@
       "texture": "terrarian_banners:entity/mob_banner/accent/default"
     },
     {
-      "name": "icon",
-      "texture": "terrarian_banners:entity/mob_banner/icon/default"
+      "name": "emblem",
+      "texture": "terrarian_banners:entity/mob_banner/emblem/default"
     }
   ]
 }

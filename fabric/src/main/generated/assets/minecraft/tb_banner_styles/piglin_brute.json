@@ -1,8 +1,8 @@
 {
   "layers": [
     {
-      "name": "icon",
-      "texture": "terrarian_banners:entity/mob_banner/icon/piglin_brute"
+      "name": "emblem",
+      "texture": "terrarian_banners:entity/mob_banner/emblem/piglin_brute"
     },
     {
       "color": "#592A10",
@@ -11,13 +11,13 @@
     },
     {
       "color": "#F9F3A4",
-      "name": "secondary",
-      "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#FFFFFF",
-      "name": "accent",
-      "texture": "terrarian_banners:entity/mob_banner/accent/default"
+      "name": "thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     }
   ]
 }

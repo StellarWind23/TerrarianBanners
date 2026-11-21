@@ -1,8 +1,8 @@
 {
   "layers": [
     {
-      "name": "icon",
-      "texture": "terrarian_banners:entity/mob_banner/icon/evoker"
+      "name": "emblem",
+      "texture": "terrarian_banners:entity/mob_banner/emblem/evoker"
     },
     {
       "color": "#959B9B",
@@ -11,13 +11,13 @@
     },
     {
       "color": "#1E1C1A",
-      "name": "secondary",
-      "texture": "terrarian_banners:entity/mob_banner/secondary/default"
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#FFFFFF",
-      "name": "accent",
-      "texture": "terrarian_banners:entity/mob_banner/accent/default"
+      "name": "thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     }
   ]
 }
