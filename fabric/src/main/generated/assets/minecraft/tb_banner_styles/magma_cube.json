@@ -6,9 +6,14 @@
       "texture": "terrarian_banners:entity/mob_banner/base/default"
     },
     {
-      "color": "#FCFC00",
+      "color": "#CE490D",
       "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
+    },
+    {
+      "color": "#FFF847",
+      "name": "flame",
+      "texture": "terrarian_banners:entity/mob_banner/detail/flame"
     },
     {
       "color": "#FFFFFF",

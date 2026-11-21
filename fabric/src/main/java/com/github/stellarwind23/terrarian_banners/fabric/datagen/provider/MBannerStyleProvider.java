@@ -56,7 +56,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.AXOLOTL, TBBannerStyle.fromLayers(b("default", 0xfbc1e3), d("border", 0xa62d74), d("thin_border", 0xFFFFFF), e(EntityType.AXOLOTL)));
         put(out, EntityType.BAT, TBBannerStyle.fromLayers(b("default", 0x4c3e30), d("border", 0x0f0f0f), d("thin_border", 0xFFFFFF), e(EntityType.BAT)));
         put(out, EntityType.BEE, TBBannerStyle.fromLayers(b("default", 0xedc343), d("border", 0x43241b), d("comb", 0xFC9600), d("thin_border", 0xedc343), e(EntityType.BEE)));
-        put(out, EntityType.BLAZE, TBBannerStyle.fromLayers(b("default", 0xf6b201), d("border", 0xfff87e), d("thin_border", 0xFFFFFF), e(EntityType.BLAZE)));
+        put(out, EntityType.BLAZE, TBBannerStyle.fromLayers(b("default", 0xf6b201), d("border", 0xfff87e), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.BLAZE)));
         put(out, EntityType.BOGGED, TBBannerStyle.fromLayers(b("default", 0x8a9c72), d("border", 0x314d1b), d("thin_border", 0xFFFFFF), e(EntityType.BOGGED)));
         put(out, EntityType.BREEZE, TBBannerStyle.fromLayers(b("default", 0xaf94df), d("border", 0x9166df), d("thin_border", 0xFFFFFF), e(EntityType.BREEZE)));
         put(out, EntityType.CAMEL, TBBannerStyle.fromLayers(b("default", 0xfcc369), d("border", 0xcb9337), d("thin_border", 0xFFFFFF), e(EntityType.CAMEL)));
@@ -77,16 +77,16 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.EVOKER, TBBannerStyle.fromLayers(b("default", 0x959b9b), d("border", 0x1e1c1a), d("thin_border", 0xFFFFFF), e(EntityType.EVOKER)));
         put(out, EntityType.FOX, TBBannerStyle.fromLayers(b("default", 0xd5b69f), d("border", 0xcc6920), d("thin_border", 0xFFFFFF), e(EntityType.FOX)));
         put(out, EntityType.FROG, TBBannerStyle.fromLayers(b("default", 0xd07444), d("border", 0xffc77c), d("thin_border", 0xFFFFFF), e(EntityType.FROG)));
-        put(out, EntityType.GHAST, TBBannerStyle.fromLayers(b("default", 0xf9f9f9), d("border", 0xbcbcbc), d("thin_border", 0xFFFFFF), e(EntityType.GHAST)));
+        put(out, EntityType.GHAST, TBBannerStyle.fromLayers(b("default", 0xf9f9f9), d("border", 0xbcbcbc), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.GHAST)));
         put(out, EntityType.GLOW_SQUID, TBBannerStyle.fromLayers(b("default", 0x095656), d("border", 0x85f1bc), d("thin_border", 0xFFFFFF), e(EntityType.GLOW_SQUID)));
         put(out, EntityType.GOAT, TBBannerStyle.fromLayers(b("default", 0xa5947c), d("border", 0x55493e), d("thin_border", 0xFFFFFF), e(EntityType.GOAT)));
         put(out, EntityType.GUARDIAN, TBBannerStyle.fromLayers(b("default", 0x5a8272), d("border", 0xf17d30), d("thin_border", 0xFFFFFF), e(EntityType.GUARDIAN)));
-        put(out, EntityType.HOGLIN, TBBannerStyle.fromLayers(b("default", 0xc66e55), d("border", 0x5f6464), d("thin_border", 0xFFFFFF), e(EntityType.HOGLIN)));
+        put(out, EntityType.HOGLIN, TBBannerStyle.fromLayers(b("default", 0xc66e55), d("border", 0x5f6464), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.HOGLIN)));
         put(out, EntityType.HORSE, TBBannerStyle.fromLayers(b("default", 0xc09e7d), d("border", 0xeee500), d("thin_border", 0xFFFFFF), e(EntityType.HORSE)));
         put(out, EntityType.HUSK, TBBannerStyle.fromLayers(b("default", 0x797061), d("border", 0xe6cc94), d("thin_border", 0xFFFFFF), e(EntityType.HUSK)));
         put(out, EntityType.IRON_GOLEM, TBBannerStyle.fromLayers(b("default", 0xdbcdc2), d("border", 0x74a332), d("thin_border", 0xFFFFFF), e(EntityType.IRON_GOLEM)));
         put(out, EntityType.LLAMA, TBBannerStyle.fromLayers(b("default", 0xc09e7d), d("border", 0x995f40), d("thin_border", 0xFFFFFF), e(EntityType.LLAMA)));
-        put(out, EntityType.MAGMA_CUBE, TBBannerStyle.fromLayers(b("default", 0x340000), d("border", 0xfcfc00), d("thin_border", 0xFFFFFF), e(EntityType.MAGMA_CUBE)));
+        put(out, EntityType.MAGMA_CUBE, TBBannerStyle.fromLayers(b("default", 0x340000), d("border", 0xce490d), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.MAGMA_CUBE)));
         put(out, EntityType.MOOSHROOM, TBBannerStyle.fromLayers(b("default", 0xa00f10), d("border", 0xb7b7b7), d("thin_border", 0xFFFFFF), e(EntityType.MOOSHROOM)));
         put(out, EntityType.MULE, TBBannerStyle.fromLayers(b("default", 0x1b0200), d("border", 0x51331d), d("thin_border", 0xFFFFFF), e(EntityType.MULE)));
         put(out, EntityType.OCELOT, TBBannerStyle.fromLayers(b("default", 0xefde7d), d("border", 0x564434), d("thin_border", 0xFFFFFF), e(EntityType.OCELOT)));
@@ -94,8 +94,8 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.PARROT, TBBannerStyle.fromLayers(b("default", 0x0da70b), d("border", 0xff0000), d("thin_border", 0xFFFFFF), e(EntityType.PARROT)));
         put(out, EntityType.PHANTOM, TBBannerStyle.fromLayers(b("default", 0x43518a), d("border", 0x88ff00), d("thin_border", 0xFFFFFF), e(EntityType.PHANTOM)));
         put(out, EntityType.PIG, TBBannerStyle.fromLayers(b("default", 0xf0a5a2), d("border", 0xdb635f), d("thin_border", 0xFFFFFF), e(EntityType.PIG)));
-        put(out, EntityType.PIGLIN, TBBannerStyle.fromLayers(b("default", 0x995f40), d("border", 0xf9f3a4), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN)));
-        put(out, EntityType.PIGLIN_BRUTE, TBBannerStyle.fromLayers(b("default", 0x592a10), d("border", 0xf9f3a4), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN_BRUTE)));
+        put(out, EntityType.PIGLIN, TBBannerStyle.fromLayers(b("default", 0x995f40), d("border", 0xf9f3a4), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN)));
+        put(out, EntityType.PIGLIN_BRUTE, TBBannerStyle.fromLayers(b("default", 0x592a10), d("border", 0xf9f3a4), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.PIGLIN_BRUTE)));
         put(out, EntityType.PILLAGER, TBBannerStyle.fromLayers(b("default", 0x532f36), d("border", 0x959b9b), d("thin_border", 0xFFFFFF), e(EntityType.PILLAGER)));
         put(out, EntityType.POLAR_BEAR, TBBannerStyle.fromLayers(b("default", 0xeeeede), d("border", 0xd5d6cd), d("thin_border", 0xFFFFFF), e(EntityType.POLAR_BEAR)));
         put(out, EntityType.PUFFERFISH, TBBannerStyle.fromLayers(b("default", 0xf6b201), d("border", 0x37c3f2), d("thin_border", 0xFFFFFF), e(EntityType.PUFFERFISH)));
@@ -125,7 +125,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.WARDEN, TBBannerStyle.fromLayers(b("default", 0x0f4649), d("border", 0x39d6e0), d("thin_border", 0xFFFFFF), e(EntityType.WARDEN)));
         put(out, EntityType.WITCH, TBBannerStyle.fromLayers(b("default", 0x340000), d("border", 0x51a03e), d("thin_border", 0xFFFFFF), e(EntityType.WITCH)));
         put(out, EntityType.WITHER, TBBannerStyle.fromLayers(b("default", 0x141414), d("border", 0x4d72a0), d("thin_border", 0xFFFFFF), e(EntityType.WITHER)));
-        put(out, EntityType.WITHER_SKELETON, TBBannerStyle.fromLayers(b("default", 0x141414), d("border", 0x474d4d), d("thin_border", 0xFFFFFF), e(EntityType.WITHER_SKELETON)));
+        put(out, EntityType.WITHER_SKELETON, TBBannerStyle.fromLayers(b("default", 0x141414), d("border", 0x474d4d), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.WITHER_SKELETON)));
         put(out, EntityType.WOLF, TBBannerStyle.fromLayers(b("default", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
         put(out, EntityType.ZOGLIN, TBBannerStyle.fromLayers(b("default", 0xc66e55), d("border", 0xe6e6e6), d("thin_border", 0xFFFFFF), e(EntityType.ZOGLIN)));
         put(out, EntityType.ZOMBIE, TBBannerStyle.fromLayers(b("default", 0x00afaf), d("border", 0x799c65), d("thin_border", 0xFFFFFF), e(EntityType.ZOMBIE)));
