@@ -11,11 +11,6 @@
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
-      "color": "#B4ECDF",
-      "name": "bubble",
-      "texture": "terrarian_banners:entity/mob_banner/detail/bubble"
-    },
-    {
       "color": "#FFFFFF",
       "name": "thin_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
