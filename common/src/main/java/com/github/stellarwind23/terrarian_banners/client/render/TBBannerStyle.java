@@ -4,7 +4,6 @@ import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
 
@@ -44,21 +43,18 @@ public record TBBannerStyle(List<Layer> layers) {
         }
     }
 
-    public static final Layer DEFAULT_BASE      = Layer.asset("base", "entity/mob_banner/base/default");
-    public static final Layer DEFAULT_SECONDARY = Layer.asset("secondary", "entity/mob_banner/secondary/default");
-    public static final Layer DEFAULT_ACCENT    = Layer.asset("accent", "entity/mob_banner/accent/default");
-    public static final Layer DEFAULT_ICON      = Layer.asset("emblem", "entity/mob_banner/emblem/default");
-
     public static final Codec<TBBannerStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
             Layer.CODEC.listOf().validate(TBBannerStyle::checkUniqueNames)
                     .fieldOf("layers").forGetter(TBBannerStyle::layers)
     ).apply(i, TBBannerStyle::new));
 
-    public static final TBBannerStyle NEUTRAL = classic(
-            DEFAULT_ICON,
-            DEFAULT_BASE.withColor(TextColor.fromLegacyFormat(ChatFormatting.BLACK)),
-            DEFAULT_SECONDARY.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_PURPLE)),
-            DEFAULT_ACCENT.withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)));
+    public static Identifier NEUTRAL_ID = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "null");
+    public static final TBBannerStyle NEUTRAL = TBBannerStyle.fromLayers(
+            Layer.asset("base", "entity/mob_banner/base/default"),
+            Layer.asset("secondary", "entity/mob_banner/detail/border"),
+            Layer.asset("accent", "entity/mob_banner/detail/thin_border"),
+            Layer.asset("emblem", "entity/mob_banner/emblem/default")
+    );
 
     /** The four-slot shape: base, secondary and accent from the bottom up, with the emblem on top. */
     public static TBBannerStyle classic(Layer icon, Layer base, Layer secondary, Layer accent) {

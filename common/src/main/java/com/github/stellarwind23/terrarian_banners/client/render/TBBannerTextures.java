@@ -23,7 +23,7 @@ public final class TBBannerTextures {
     private static final int SIZE = 64;
 
     // A real, loadable path for the moments before the first reload has finished
-    private static final Identifier FALLBACK = TBBannerStyle.DEFAULT_BASE.texture().withPrefix("textures/").withSuffix(".png");
+    private static final Identifier FALLBACK = TBBannerStyle.NEUTRAL.layers().get(1).texture().withPrefix("textures/").withSuffix(".png");
 
     private static Map<Identifier, Identifier> byMob = Map.of();
     private static Identifier neutral = FALLBACK;

@@ -1,0 +1,20 @@
+{
+  "layers": [
+    {
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/default"
+    },
+    {
+      "name": "secondary",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
+    },
+    {
+      "name": "accent",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
+    },
+    {
+      "name": "emblem",
+      "texture": "terrarian_banners:entity/mob_banner/emblem/default"
+    }
+  ]
+}
