@@ -1,6 +1,10 @@
 package com.github.stellarwind23.terrarian_banners.content.block;
 
+import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
+import com.github.stellarwind23.terrarian_banners.content.TBItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,5 +20,14 @@ public abstract class AbstractMobBannerBlock extends BaseEntityBlock {
     @Override
     public @Nullable BlockEntity newBlockEntity(@NonNull BlockPos pos, @NonNull BlockState state) {
         return new MobBannerBlockEntity(pos, state);
+    }
+
+    @Override
+    protected @NonNull ItemStack getCloneItemStack(LevelReader level, @NonNull BlockPos pos, @NonNull BlockState state, boolean includeData) {
+        ItemStack stack = new ItemStack(TBItems.MOB_BANNER.get());
+        if (level.getBlockEntity(pos) instanceof MobBannerBlockEntity banner && banner.getMob() != null) {
+            stack.set(TBComponentTypes.MOB_BANNER.get(), banner.getMob());
+        }
+        return stack;
     }
 }

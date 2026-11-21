@@ -1,9 +1,14 @@
 {
   "layers": [
     {
-      "color": "#7B4788",
+      "color": "#B42DD6",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/night"
+      "texture": "terrarian_banners:entity/mob_banner/base/noise"
+    },
+    {
+      "color": "#AEBB74",
+      "name": "islands",
+      "texture": "terrarian_banners:entity/mob_banner/detail/islands"
     },
     {
       "color": "#CC00FA",
