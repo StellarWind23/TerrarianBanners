@@ -123,7 +123,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.VINDICATOR, TBBannerStyle.fromLayers(b("default", 0x959b9b), d("border", 0x275e61), d("thin_border", 0xFFFFFF), e(EntityType.VINDICATOR)));
         put(out, EntityType.WANDERING_TRADER, TBBannerStyle.fromLayers(b("default", 0x456296), d("border", 0xeaa430), d("thin_border", 0xFFFFFF), e(EntityType.WANDERING_TRADER)));
         put(out, EntityType.WARDEN, TBBannerStyle.fromLayers(b("cave", 0x0f4649), d("border", 0x39d6e0), d("thin_border", 0xFFFFFF), e(EntityType.WARDEN)));
-        put(out, EntityType.WITCH, TBBannerStyle.fromLayers(b("default", 0x340000), d("border", 0x51a03e), d("thin_border", 0xFFFFFF), e(EntityType.WITCH)));
+        put(out, EntityType.WITCH, TBBannerStyle.fromLayers(b("night", 0x340000), d("border", 0x51a03e), d("thin_border", 0xFFFFFF), e(EntityType.WITCH)));
         put(out, EntityType.WITHER, TBBannerStyle.fromLayers(b("cave", 0x141414), d("border", 0x4d72a0), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.WITHER)));
         put(out, EntityType.WITHER_SKELETON, TBBannerStyle.fromLayers(b("cave", 0x141414), d("border", 0x474d4d), d("flame", 0xfff847), d("thin_border", 0xFFFFFF), e(EntityType.WITHER_SKELETON)));
         put(out, EntityType.WOLF, TBBannerStyle.fromLayers(b("default", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
