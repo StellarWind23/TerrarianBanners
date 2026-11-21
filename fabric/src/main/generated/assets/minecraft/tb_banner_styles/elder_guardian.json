@@ -7,8 +7,8 @@
     },
     {
       "color": "#747693",
-      "name": "border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/border"
+      "name": "square_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/square_border"
     },
     {
       "color": "#B4ECDF",
@@ -17,8 +17,8 @@
     },
     {
       "color": "#FFFFFF",
-      "name": "thin_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
+      "name": "square_thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/square_thin_border"
     },
     {
       "name": "emblem",
