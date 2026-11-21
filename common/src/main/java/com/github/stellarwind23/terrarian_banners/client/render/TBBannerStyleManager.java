@@ -23,9 +23,7 @@ public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBan
     }
 
     @Override
-    protected void apply(@NonNull Map<Identifier, TBBannerStyle> prepared,
-                         @NonNull ResourceManager manager,
-                         @NonNull ProfilerFiller profiler) {
+    protected void apply(@NonNull Map<Identifier, TBBannerStyle> prepared, @NonNull ResourceManager manager, @NonNull ProfilerFiller profiler) {
         styles = Map.copyOf(prepared);
         TerrarianBanners.LOGGER.info("Loaded {} banner styles", styles.size());
         TBBannerTextures.reload(styles, manager);
