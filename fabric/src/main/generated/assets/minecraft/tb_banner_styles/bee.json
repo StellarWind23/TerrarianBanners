@@ -6,14 +6,14 @@
       "texture": "terrarian_banners:entity/mob_banner/base/default"
     },
     {
-      "color": "#43241B",
-      "name": "border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/border"
-    },
-    {
       "color": "#FC9600",
       "name": "comb",
       "texture": "terrarian_banners:entity/mob_banner/detail/comb"
+    },
+    {
+      "color": "#43241B",
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#EDC343",
