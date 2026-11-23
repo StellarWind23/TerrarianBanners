@@ -12,13 +12,13 @@
     },
     {
       "color": "#FFFFFF",
-      "name": "square_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/square_border"
+      "name": "boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/boss_border"
     },
     {
       "color": "#4D72A0",
-      "name": "thin_square_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/thin_square_border"
+      "name": "thin_boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_boss_border"
     },
     {
       "name": "emblem",
