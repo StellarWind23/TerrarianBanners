@@ -1,5 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.content;
 
+import com.github.stellarwind23.terrarian_banners.content.effect.TBBannerGroupEffect;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBMobBannerEffect;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -22,6 +23,8 @@ public class TBEffects {
 
     private static final Map<EntityType<?>, RegistrySupplier<MobEffect>> BY_ENTITY = new HashMap<>();
     private static final Map<EntityType<?>, Holder<MobEffect>> HOLDERS = new ConcurrentHashMap<>();
+    public static RegistrySupplier<MobEffect> GROUP;
+    private static Holder<MobEffect> groupHolder;
 
     public static void init() {
         EFFECTS = DeferredRegister.create(TerrarianBanners.MOD_ID, Registries.MOB_EFFECT);
@@ -34,6 +37,8 @@ public class TBEffects {
                     () -> new TBMobBannerEffect(type)));
         }
 
+        GROUP = EFFECTS.register("banner_group", TBBannerGroupEffect::new);
+
         EFFECTS.register();
     }
 
@@ -41,5 +46,10 @@ public class TBEffects {
         RegistrySupplier<MobEffect> supplier = BY_ENTITY.get(type);
         if (supplier == null) return null;
         return HOLDERS.computeIfAbsent(type, t -> BuiltInRegistries.MOB_EFFECT.wrapAsHolder(supplier.get()));
+    }
+
+    public static Holder<MobEffect> groupHolder() {
+        if (groupHolder == null) groupHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(GROUP.get());
+        return groupHolder;
     }
 }

@@ -19,4 +19,6 @@ public class TBMobBannerEffect extends MobEffect {
     public @NonNull Component getDisplayName() {
         return Component.translatable("effect.terrarian_banners.mob_effect" + type.getDescriptionId().replaceFirst("entity", ""));
     }
+
+    EntityType<?> getType() { return type; }
 }
