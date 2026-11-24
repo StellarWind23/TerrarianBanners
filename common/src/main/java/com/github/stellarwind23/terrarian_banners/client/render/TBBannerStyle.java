@@ -49,12 +49,13 @@ public record TBBannerStyle(List<Layer> layers) {
                     .fieldOf("layers").forGetter(TBBannerStyle::layers)
     ).apply(i, TBBannerStyle::new));
 
-    public static Identifier NEUTRAL_ID = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "null");
-    public static final TBBannerStyle NEUTRAL = TBBannerStyle.fromLayers(
+    public static Identifier NULL_ID = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "null");
+    public static Layer NULL_EMBLEM = Layer.asset("emblem", "entity/mob_banner/emblem/default");
+    public static final TBBannerStyle NULL_STYLE = TBBannerStyle.fromLayers(
             Layer.asset("base", "entity/mob_banner/base/default").withColor(TextColor.fromLegacyFormat(ChatFormatting.BLACK)),
             Layer.asset("border", "entity/mob_banner/detail/border").withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_PURPLE)),
             Layer.asset("thin_border", "entity/mob_banner/detail/thin_border").withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)),
-            Layer.asset("emblem", "entity/mob_banner/emblem/default")
+            NULL_EMBLEM
     );
 
     private static DataResult<List<Layer>> checkUniqueNames(List<Layer> layers) {

@@ -23,7 +23,7 @@ public final class TBBannerTextures {
     private static final int SIZE = 64;
 
     // A real, loadable path for the moments before the first reload has finished
-    private static final Identifier FALLBACK = TBBannerStyle.NEUTRAL.layers().get(1).texture().withPrefix("textures/").withSuffix(".png");
+    private static final Identifier FALLBACK = TBBannerStyle.NULL_STYLE.layers().get(1).texture().withPrefix("textures/").withSuffix(".png");
 
     private static Map<Identifier, Identifier> byMob = Map.of();
     private static Identifier neutral = FALLBACK;
@@ -47,7 +47,7 @@ public final class TBBannerTextures {
 
         Map<Identifier, Identifier> mobs = new HashMap<>();
         try (Baker baker = new Baker(manager)) {
-            neutral = baker.get(TBBannerStyle.NEUTRAL);
+            neutral = baker.get(TBBannerStyle.NULL_STYLE);
             styles.forEach((mob, style) -> mobs.put(mob, baker.get(style)));
             owned = List.copyOf(baker.baked.values());
         }
@@ -82,9 +82,12 @@ public final class TBBannerTextures {
 
         private void composite(NativeImage dst, TBBannerStyle.Layer layer) {
             NativeImage src = source(layer);
+            if (src == null && layer.name().equals("emblem")) {
+                src = source(TBBannerStyle.NULL_EMBLEM); //fallback to default
+            }
             if (src == null) return;
-
             int tint = layer.tint();
+
             for (int y = 0; y < Math.min(src.getHeight(), SIZE); y++) {
                 for (int x = 0; x < Math.min(src.getWidth(), SIZE); x++) {
                     int s = ARGB.multiply(src.getPixel(x, y), tint);

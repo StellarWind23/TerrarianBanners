@@ -39,7 +39,7 @@ public class MEffectIconProvider implements DataProvider {
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
         BufferedImage background = read(BACKGROUND);
         if (background == null) throw new IllegalStateException("Missing effect icon background: " + BACKGROUND);
-        BufferedImage fallback = read(  TBBannerStyle.Layer.asset("emblem", "entity/mob_banner/emblem/default").texture());
+        BufferedImage fallback = read(TBBannerStyle.NULL_EMBLEM.texture());
 
         MBannerStyleProvider.buildStyles().forEach((mob, style) ->
                 write(cache, mob, compose(background, emblemFor(mob, style, fallback))));

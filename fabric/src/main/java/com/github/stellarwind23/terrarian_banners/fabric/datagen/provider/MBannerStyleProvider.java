@@ -32,11 +32,11 @@ public class MBannerStyleProvider implements DataProvider {
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
         Map<Identifier, TBBannerStyle> styles = new LinkedHashMap<>();
 
-        styles.put(TBBannerStyle.NEUTRAL_ID, TBBannerStyle.NEUTRAL);
+        styles.put(TBBannerStyle.NULL_ID, TBBannerStyle.NULL_STYLE);
 
         //Populate with default
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NEUTRAL);
+            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NULL_STYLE);
         }
 
         //Hand written styles replace the generated ones
@@ -53,7 +53,7 @@ public class MBannerStyleProvider implements DataProvider {
     public static Map<Identifier, TBBannerStyle> buildStyles() {
         Map<Identifier, TBBannerStyle> styles = new LinkedHashMap<>();
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NEUTRAL);
+            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NULL_STYLE);
         }
         addStyles(styles);
         return styles;

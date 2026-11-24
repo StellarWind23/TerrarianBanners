@@ -1,6 +1,6 @@
 {
   "effect.terrarian_banners.banner_group": "Mob Banners",
-  "effect.terrarian_banners.banner_group.header": "(%s) Slayer",
+  "effect.terrarian_banners.banner_group.header": "Mob Banners(%s)",
   "effect.terrarian_banners.banner_group.more": "...and %s more",
   "effect.terrarian_banners.mob_effect.minecraft.allay": "Allay Slayer",
   "effect.terrarian_banners.mob_effect.minecraft.armadillo": "Armadillo Slayer",

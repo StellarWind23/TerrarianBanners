@@ -31,9 +31,17 @@ public abstract class GuiGraphicsMixin {
         ci.cancel();
     }
 
-    @ModifyVariable(method = "setComponentTooltipForNextFrame(Lnet/minecraft/client/gui/Font;Ljava/util/List;II)V", at = @At("HEAD"), argsOnly = true)
-    private List<Component> tb$groupTooltip(List<Component> list) {
-        TerrarianBanners.LOGGER.info("tb$groupTooltip RAN!!!!!!!!!!!!!!!");
+    @ModifyVariable(
+            method = "setTooltipForNextFrame(Lnet/minecraft/client/gui/Font;Ljava/util/List;Ljava/util/Optional;IILnet/minecraft/resources/Identifier;)V",
+            at = @At("HEAD"), argsOnly = true)
+    private List<Component> tb$groupTooltipOptional(List<Component> list) {
+        return TBEffectGrouping.isGroupTooltip(list) ? TBEffectGrouping.tooltip() : list;
+    }
+
+    @ModifyVariable(
+            method = "setComponentTooltipForNextFrame(Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/Identifier;)V",
+            at = @At("HEAD"), argsOnly = true)
+    private List<Component> tb$groupTooltipComponent(List<Component> list) {
         return TBEffectGrouping.isGroupTooltip(list) ? TBEffectGrouping.tooltip() : list;
     }
 }

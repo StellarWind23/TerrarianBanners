@@ -29,6 +29,6 @@ public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBan
     }
 
     public TBBannerStyle get(@Nullable Identifier mob) {
-        return mob == null ? TBBannerStyle.NEUTRAL : styles.getOrDefault(mob, TBBannerStyle.NEUTRAL);
+        return mob == null ? TBBannerStyle.NULL_STYLE : styles.getOrDefault(mob, TBBannerStyle.NULL_STYLE);
     }
 }

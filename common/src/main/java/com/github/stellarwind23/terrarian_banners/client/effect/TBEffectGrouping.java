@@ -61,15 +61,6 @@ public final class TBEffectGrouping {
         out.add(new MobEffectInstance(TBEffects.groupHolder(), duration, 0, true, false, true));
         return out;
     }
-
-    // ---- Tooltip ----
-
-    public static boolean isGroupTooltip(List<Component> lines) {
-        return !lines.isEmpty()
-                && lines.get(0).getContents() instanceof TranslatableContents contents
-                && contents.getKey().equals(GROUP_NAME_KEY);
-    }
-
     public static List<Component> tooltip() {
         List<MobEffectInstance> banners = activeBanners();
         List<Component> lines = new ArrayList<>();
@@ -129,5 +120,13 @@ public final class TBEffectGrouping {
         g.fill(x + mid - 1, y + off - 1, x + mid + 2, y + off + arm + 1, alpha);
         g.fill(x + off, y + mid, x + off + arm, y + mid + 1, white);
         g.fill(x + mid, y + off, x + mid + 1, y + off + arm, white);
+    }
+
+    public static boolean isGroupName(Component name) {
+        return name.getContents() instanceof TranslatableContents c && c.getKey().equals(GROUP_NAME_KEY);
+    }
+
+    public static boolean isGroupTooltip(List<Component> lines) {
+        return !lines.isEmpty() && isGroupName(lines.getFirst());
     }
 }
