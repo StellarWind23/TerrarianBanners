@@ -1,9 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.init;
 
-import com.github.stellarwind23.terrarian_banners.content.TBBlocks;
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBItems;
-import com.github.stellarwind23.terrarian_banners.content.TBTab;
+import com.github.stellarwind23.terrarian_banners.content.*;
 import com.github.stellarwind23.terrarian_banners.event.BannerDropHandler;
 import dev.architectury.event.events.common.EntityEvent;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +22,7 @@ public final class TerrarianBanners {
         TBBlocks.init();
         TBItems.init();
         TBComponentTypes.init();
+        TBEffects.init();
 
         EntityEvent.LIVING_DEATH.register(BannerDropHandler::onDeath);
     }

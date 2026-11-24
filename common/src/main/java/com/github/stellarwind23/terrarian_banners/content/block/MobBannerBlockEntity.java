@@ -2,7 +2,7 @@ package com.github.stellarwind23.terrarian_banners.content.block;
 
 import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.effect.TBEffects;
+import com.github.stellarwind23.terrarian_banners.content.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;
 import net.minecraft.core.BlockPos;

@@ -1,5 +1,6 @@
-package com.github.stellarwind23.terrarian_banners.content.effect;
+package com.github.stellarwind23.terrarian_banners.content;
 
+import com.github.stellarwind23.terrarian_banners.content.effect.TBMobBannerEffect;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
