@@ -50,7 +50,16 @@ public class MBannerStyleProvider implements DataProvider {
         return CompletableFuture.allOf(writes.toArray(CompletableFuture[]::new));
     }
 
-    private void addStyles(Map<Identifier, TBBannerStyle> out) {
+    public static Map<Identifier, TBBannerStyle> buildStyles() {
+        Map<Identifier, TBBannerStyle> styles = new LinkedHashMap<>();
+        for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
+            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBBannerStyle.NEUTRAL);
+        }
+        addStyles(styles);
+        return styles;
+    }
+
+    private static void addStyles(Map<Identifier, TBBannerStyle> out) {
         put(out, EntityType.ALLAY, TBBannerStyle.fromLayers(b("gradient_up", 0x00daff), d("border", 0x00adff), d("thin_border", 0xFFFFFF), e(EntityType.ALLAY)));
         put(out, EntityType.ARMADILLO, TBBannerStyle.fromLayers(b("gradient_up", 0xad716d), d("border", 0x824848), d("thin_border", 0xFFFFFF), e(EntityType.ARMADILLO)));
         put(out, EntityType.AXOLOTL, TBBannerStyle.fromLayers(b("cave", 0xfbc1e3), d("border", 0xa62d74), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.AXOLOTL)));

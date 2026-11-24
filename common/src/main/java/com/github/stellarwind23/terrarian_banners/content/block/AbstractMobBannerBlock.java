@@ -1,12 +1,16 @@
 package com.github.stellarwind23.terrarian_banners.content.block;
 
+import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import org.jspecify.annotations.NonNull;
@@ -29,5 +33,11 @@ public abstract class AbstractMobBannerBlock extends BaseEntityBlock {
             stack.set(TBComponentTypes.MOB_BANNER.get(), banner.getMob());
         }
         return stack;
+    }
+
+    @Override
+    public <T extends BlockEntity> @Nullable BlockEntityTicker<T> getTicker(Level level, @NonNull BlockState state, @NonNull BlockEntityType<T> type) {
+        return level.isClientSide() ? null
+                : createTickerHelper(type, TBBlockEntityTypes.MOB_BANNER.get(), MobBannerBlockEntity::serverTick);
     }
 }

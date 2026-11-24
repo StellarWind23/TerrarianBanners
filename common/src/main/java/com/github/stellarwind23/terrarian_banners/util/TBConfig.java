@@ -16,6 +16,11 @@ public class TBConfig extends MidnightConfig {
 
     @Entry public static boolean requirePlayerKill = true;
 
+    @Entry(min = 1, max = 128)  public static int auraRadius = 32;
+    @Entry(min = 0, max = 100)  public static int damageTakenReductionPercent = 25;
+    @Entry(min = 0, max = 300)  public static int damageDealtBonusPercent = 50;
+    @Entry(min = 220, max = 6000) public static int effectDurationTicks = 220;
+
     public static int killsFor(Identifier id) {
         String key = id.toString();
         for (String entry : killOverrides) {

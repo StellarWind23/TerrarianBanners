@@ -127,7 +127,7 @@ public final class TBBannerTextures {
     }
 
     // Standard "source over destination" alpha blend on straight-alpha ARGB
-    private static int over(int s, int d) {
+    public static int over(int s, int d) {
         int sa = ARGB.alpha(s), da = ARGB.alpha(d);
         if (sa == 255 || da == 0) return s;
 
