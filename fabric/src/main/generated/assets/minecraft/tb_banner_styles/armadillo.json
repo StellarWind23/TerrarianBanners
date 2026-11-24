@@ -1,9 +1,9 @@
 {
   "layers": [
     {
-      "color": "#AD716D",
+      "color": "#99CCFF",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/gradient_up"
+      "texture": "terrarian_banners:entity/mob_banner/base/sky"
     },
     {
       "color": "#824848",

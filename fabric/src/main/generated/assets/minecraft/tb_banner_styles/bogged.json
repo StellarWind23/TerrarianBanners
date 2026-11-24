@@ -1,9 +1,19 @@
 {
   "layers": [
     {
-      "color": "#8A9C72",
+      "color": "#99CCFF",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/default"
+      "texture": "terrarian_banners:entity/mob_banner/base/sky"
+    },
+    {
+      "color": "#8A9C72",
+      "name": "hill",
+      "texture": "terrarian_banners:entity/mob_banner/detail/hill"
+    },
+    {
+      "color": "#2033BB",
+      "name": "lake",
+      "texture": "terrarian_banners:entity/mob_banner/detail/lake"
     },
     {
       "color": "#314D1B",

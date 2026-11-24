@@ -3,7 +3,7 @@
     {
       "color": "#CECCBA",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/gradient_down"
+      "texture": "terrarian_banners:entity/mob_banner/base/ocean"
     },
     {
       "color": "#747693",
@@ -17,8 +17,8 @@
     },
     {
       "color": "#FFFFFF",
-      "name": "square_thin_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/square_thin_border"
+      "name": "thin_square_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_square_border"
     },
     {
       "name": "emblem",
