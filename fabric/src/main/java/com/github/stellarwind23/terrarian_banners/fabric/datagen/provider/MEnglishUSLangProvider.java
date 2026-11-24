@@ -29,6 +29,7 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
             if(TerrarianBanners.isBannerMob(type)) {
                 translationBuilder.add("item.terrarian_banners.mob_banner" + type.getDescriptionId().replaceFirst("entity", ""), type.getDescription().getString() + " Banner");
+                translationBuilder.add("effect.terrarian_banners.mob_effect" + type.getDescriptionId().replaceFirst("entity", ""), type.getDescription().getString() + " Slayer");
             }
         }
     }

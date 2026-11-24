@@ -18,5 +18,6 @@ public class TerrarianBannersFabricDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(MTagProvider::new);
         pack.addProvider(MBlockLootProvider::new);
         pack.addProvider(MBannerStyleProvider::new);
+        pack.addProvider(MEffectIconProvider::new);
     }
 }

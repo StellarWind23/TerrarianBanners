@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.util;
 
-import com.github.stellarwind23.terrarian_banners.content.TBEffects;
+import com.github.stellarwind23.terrarian_banners.content.effect.TBEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;

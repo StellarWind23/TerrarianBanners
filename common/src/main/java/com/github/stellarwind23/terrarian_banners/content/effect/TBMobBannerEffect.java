@@ -1,4 +1,4 @@
-package com.github.stellarwind23.terrarian_banners.content;
+package com.github.stellarwind23.terrarian_banners.content.effect;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
@@ -17,6 +17,6 @@ public class TBMobBannerEffect extends MobEffect {
 
     @Override
     public @NonNull Component getDisplayName() {
-        return Component.translatable("effect.terrarian_banners.banner", type.getDescription());
+        return Component.translatable("effect.terrarian_banners.", type.getDescriptionId().replaceFirst("entity", ""));
     }
 }
