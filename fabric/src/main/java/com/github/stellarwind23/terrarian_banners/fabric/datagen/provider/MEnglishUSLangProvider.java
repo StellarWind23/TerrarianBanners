@@ -33,8 +33,8 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
             }
         }
 
-        translationBuilder.add("effect.terrarian_banners.banner_group", "Slayer Banners");
-        translationBuilder.add("effect.terrarian_banners.banner_group.header", "Slayer Banners (%s)");
+        translationBuilder.add("effect.terrarian_banners.banner_group", "Mob Banners");
+        translationBuilder.add("effect.terrarian_banners.banner_group.header", "(%s) Slayer");
         translationBuilder.add("effect.terrarian_banners.banner_group.more", "...and %s more");
     }
 }

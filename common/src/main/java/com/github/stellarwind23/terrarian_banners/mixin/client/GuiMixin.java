@@ -19,7 +19,7 @@ public abstract class GuiMixin {
             method = "renderEffects(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V",
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/client/player/LocalPlayer;getActiveEffects()Ljava/util/Collection;"))
-    private Collection tb$mergeBanners(LocalPlayer instance, Operation<Collection> original) {
+    private Collection<?> tb$mergeBanners(LocalPlayer instance, Operation<Collection<?>> original) {
         return TBEffectGrouping.merge((Collection<MobEffectInstance>) original.call(instance));
     }
 }

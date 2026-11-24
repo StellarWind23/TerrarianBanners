@@ -16,7 +16,6 @@ import java.util.List;
 @Mixin(GuiGraphics.class)
 public abstract class GuiGraphicsMixin {
 
-    // The HUD draws icons with a colour (blink alpha); the inventory list may use the plain overload
     @Inject(method = "blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIII)V", at = @At("HEAD"), cancellable = true, require = 0)
     private void tb$groupIcon(RenderPipeline renderPipeline, Identifier identifier, int i, int j, int k, int l, int m, CallbackInfo ci) {
         if (!TBEffectGrouping.GROUP_SPRITE.equals(identifier)) return;
