@@ -70,6 +70,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.BOGGED, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("hill", 0x8a9c72), d("lake", 0x2033bb), d("border", 0x314d1b), d("thin_border", 0xFFFFFF), e(EntityType.BOGGED)));
         put(out, EntityType.BREEZE, TBBannerStyle.fromLayers(b("cave", 0xaf94df), d("border", 0x9166df), d("thin_border", 0xFFFFFF), e(EntityType.BREEZE)));
         put(out, EntityType.CAMEL, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("hill", 0xd7c99c), d("angled_border", 0xcb9337), d("thin_angled_border",0xfcc369), e(EntityType.CAMEL)));
+        put(out, EntityType.CAMEL_HUSK, TBBannerStyle.fromLayers(b("night", 0x5f5f5f), d("hill", 0xd7c99c), d("alt_angled_border", 0x544937), d("thin_alt_angled_border",0x1a1714), e(EntityType.CAMEL_HUSK)));
         put(out, EntityType.CAT, TBBannerStyle.fromLayers(b("default", 0xefc88e), d("angled_border", 0x957256), d("thin_angled_border", 0xFFFFFF), e(EntityType.CAT)));
         put(out, EntityType.CAVE_SPIDER, TBBannerStyle.fromLayers(b("cave", 0x0c424e), d("border", 0xa80e0e), d("thin_border", 0xFFFFFF), e(EntityType.CAVE_SPIDER)));
         put(out, EntityType.CHICKEN, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xa1a1a1), d("thin_border", 0xa1a1a1), e(EntityType.CHICKEN)));

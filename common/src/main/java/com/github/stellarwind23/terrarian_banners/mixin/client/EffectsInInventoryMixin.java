@@ -34,8 +34,8 @@ public abstract class EffectsInInventoryMixin {
         original.call(instance, arg, arg2, arg3, arg4, i, j, k, l, m, n);
 
         if (TBEffectGrouping.isGroupName(arg2)
-                && m >= j && m < j + Math.max(k, 32)
-                && n >= j && n < j + l) {
+                && m >= i && m <= i + k
+                && n >= j && n <= j + l) {
             arg.setTooltipForNextFrame(arg4, TBEffectGrouping.tooltip(), Optional.empty(), m, n);
         }
     }
