@@ -22,10 +22,10 @@ import java.util.List;
 
 public final class TBEffectGrouping {
 
-    public static final Identifier GROUP_SPRITE =
-            Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "mob_effect/banner_group");
+    public static final Identifier GROUP_SPRITE = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "mob_effect/banner_group");
     private static final String GROUP_NAME_KEY = "effect.terrarian_banners.banner_group";
     private static final int MAX_TOOLTIP_MOBS = 12;
+    private static final int MIN_GROUP_SIZE = 3;
 
     private TBEffectGrouping() { }
 
@@ -50,7 +50,7 @@ public final class TBEffectGrouping {
 
     public static Collection<MobEffectInstance> merge(Collection<MobEffectInstance> effects) {
         List<MobEffectInstance> banners = bannerEffects(effects);
-        if (banners.size() < 2) return effects;
+        if (banners.size() < MIN_GROUP_SIZE) return effects;
 
         List<MobEffectInstance> out = new ArrayList<>(effects.size() - banners.size() + 1);
         for (MobEffectInstance e : effects) {
@@ -82,33 +82,19 @@ public final class TBEffectGrouping {
     }
 
     public static void drawGroupIcon(GuiGraphics g, RenderPipeline pipeline, int x, int y, int w, int h, int color) {
-        List<Identifier> icons = activeBanners().stream()
-                .map(e -> spriteOf(e.getEffect().value())).toList();
+        List<Identifier> icons = activeBanners().stream().map(e -> spriteOf(e.getEffect().value())).toList();
         int n = icons.size();
-        if (n == 0) return;
-        if (n == 1) {
-            g.blitSprite(pipeline, icons.getFirst(), x, y, w, h, color);
-            return;
-        }
+        if (n < MIN_GROUP_SIZE) return;   // merge() never produces a group below the threshold
 
         int sw = w / 2, sh = h / 2;
-        switch (n) {
-            case 2 -> {   // side by side, vertically centred
-                int oy = (h - sh) / 2;
-                g.blitSprite(pipeline, icons.get(0), x, y + oy, sw, sh, color);
-                g.blitSprite(pipeline, icons.get(1), x + sw, y + oy, sw, sh, color);
-            }
-            case 3 -> {   // two on top, one centred underneath
-                g.blitSprite(pipeline, icons.get(0), x, y, sw, sh, color);
-                g.blitSprite(pipeline, icons.get(1), x + sw, y, sw, sh, color);
-                g.blitSprite(pipeline, icons.get(2), x + (w - sw) / 2, y + sh, sw, sh, color);
-            }
-            default -> {  // first three, then a plus in the last quadrant
-                g.blitSprite(pipeline, icons.get(0), x, y, sw, sh, color);
-                g.blitSprite(pipeline, icons.get(1), x + sw, y, sw, sh, color);
-                g.blitSprite(pipeline, icons.get(2), x, y + sh, sw, sh, color);
-                drawPlus(g, x + sw, y + sh, sw, color);
-            }
+        g.blitSprite(pipeline, icons.get(0), x, y, sw, sh, color);
+        g.blitSprite(pipeline, icons.get(1), x + sw, y, sw, sh, color);
+
+        if (n == 3) {   // two on top, the third centred underneath
+            g.blitSprite(pipeline, icons.get(2), x + (w - sw) / 2, y + sh, sw, sh, color);
+        } else {        // four or more: the third bottom-left, then a plus in the last quadrant
+            g.blitSprite(pipeline, icons.get(2), x, y + sh, sw, sh, color);
+            drawPlus(g, x + sw, y + sh, sw, color);
         }
     }
 

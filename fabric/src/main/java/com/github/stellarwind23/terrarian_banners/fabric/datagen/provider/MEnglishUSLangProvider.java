@@ -34,7 +34,7 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
         }
 
         //Config
-        translationBuilder.add("terrarian_banners.midnightconfig.title", "Terrarian Banners");
+        translationBuilder.add("terrarian_banners.midnightconfig.title", "Terrarian Banners Options");
         translationBuilder.add("terrarian_banners.midnightconfig.kills_header", "Kills Config:");
         translationBuilder.add("terrarian_banners.midnightconfig.kills_per_Banner", "Kills per banner");
         translationBuilder.add("terrarian_banners.midnightconfig.kills_required_overrides", "Kills required override(s)");

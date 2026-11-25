@@ -11,7 +11,7 @@ public class TBConfig extends MidnightConfig {
     @Comment public static Comment kills_header;
     @Entry(min = 1, max = 10000) public static int kills_per_banner = 25;
 
-    @Entry public static List<String> kills_required_overrides = new ArrayList<>(List.of("minecraft:wither=1", "minecraft:ender_dragon=1"));
+    @Entry public static List<String> kills_required_overrides = new ArrayList<>(List.of("minecraft:wither=1", "minecraft:ender_dragon=1", "minecraft:warden=1"));
 
     @Entry public static boolean require_player_kills = true;
 
