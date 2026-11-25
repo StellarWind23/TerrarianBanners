@@ -17,7 +17,7 @@ public class BannerDropHandler {
     public static EventResult onDeath(LivingEntity entity, DamageSource source) {
         if (!(entity.level() instanceof ServerLevel level)) return EventResult.pass();
         if (!entity.getType().is(TBTags.HAS_BANNER)) return EventResult.pass();
-        if (TBConfig.requirePlayerKill && !(source.getEntity() instanceof ServerPlayer)) return EventResult.pass();
+        if (TBConfig.require_player_kills && !(source.getEntity() instanceof ServerPlayer)) return EventResult.pass();
 
         Identifier id = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
         int needed = TBConfig.killsFor(id);
