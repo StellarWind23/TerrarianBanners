@@ -93,7 +93,7 @@ public class MobBannerBlockEntity extends BlockEntity {
 
         AABB area = new AABB(pos).inflate(TBConfig.auraRadius);
         for (Player player : level.getEntitiesOfClass(Player.class, area)) {
-            player.addEffect(new MobEffectInstance(effect, TBConfig.effectDurationTicks, 0, true, false, true));
+            player.addEffect(new MobEffectInstance(effect, (int) (TBConfig.effectDurationSeconds * 20D), 0, true, false, true));
         }
     }
 }
