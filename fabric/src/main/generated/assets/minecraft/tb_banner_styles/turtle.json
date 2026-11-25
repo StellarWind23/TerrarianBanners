@@ -1,19 +1,19 @@
 {
   "layers": [
     {
-      "color": "#E7E7E7",
+      "color": "#2033BB",
       "name": "base",
       "texture": "terrarian_banners:entity/mob_banner/base/ocean"
-    },
-    {
-      "color": "#00AFAF",
-      "name": "border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#B4ECDF",
       "name": "bubble",
       "texture": "terrarian_banners:entity/mob_banner/detail/bubble"
+    },
+    {
+      "color": "#00AFAF",
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#FFFFFF",
