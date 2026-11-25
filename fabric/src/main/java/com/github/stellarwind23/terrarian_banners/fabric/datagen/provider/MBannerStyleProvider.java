@@ -60,6 +60,7 @@ public class MBannerStyleProvider implements DataProvider {
     }
 
     private static void addStyles(Map<Identifier, TBBannerStyle> out) {
+        put(out, EntityType.COPPER_GOLEM, TBBannerStyle.fromLayers(b("default", 0xb05537), d("square_border", 0xbf6f54), d("thin_square_border", 0xe3826c), e(EntityType.COPPER_GOLEM)));
         put(out, EntityType.ALLAY, TBBannerStyle.fromLayers(b("sky", 0x00daff), d("border", 0x00adff), d("thin_border", 0xFFFFFF), e(EntityType.ALLAY)));
         put(out, EntityType.ARMADILLO, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0x824848), d("thin_border", 0xFFFFFF), e(EntityType.ARMADILLO)));
         put(out, EntityType.AXOLOTL, TBBannerStyle.fromLayers(b("cave", 0xfbc1e3), d("border", 0xa62d74), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.AXOLOTL)));
@@ -87,6 +88,7 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.FOX, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xd5b69f), d("thin_border", 0xcc6920), e(EntityType.FOX)));
         put(out, EntityType.FROG, TBBannerStyle.fromLayers(b("sky", 0xd07444), d("border", 0xffc77c), d("thin_border", 0xFFFFFF), e(EntityType.FROG)));
         put(out, EntityType.GHAST, TBBannerStyle.fromLayers(b("cave", 0xf9f9f9), d("flame", 0xfff847), d("border", 0xbcbcbc), d("thin_border", 0xFFFFFF), e(EntityType.GHAST)));
+        put(out, EntityType.HAPPY_GHAST, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xbcbcbc), d("thin_border", 0xFFFFFF), e(EntityType.HAPPY_GHAST)));
         put(out, EntityType.GLOW_SQUID, TBBannerStyle.fromLayers(b("cave", 0x095656), d("border", 0x85f1bc), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.GLOW_SQUID)));
         put(out, EntityType.GOAT, TBBannerStyle.fromLayers(b("sky", 0xa5947c), d("border", 0x55493e), d("thin_border", 0xFFFFFF), e(EntityType.GOAT)));
         put(out, EntityType.GUARDIAN, TBBannerStyle.fromLayers(b("ocean", 0x5a8272), d("square_border", 0xf17d30), d("bubble", 0xb4ecdf), d("thin_square_border", 0xFFFFFF), e(EntityType.GUARDIAN)));
