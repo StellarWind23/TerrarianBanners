@@ -1,6 +1,6 @@
 {
   "effect.terrarian_banners.banner_group": "Mob Banners",
-  "effect.terrarian_banners.banner_group.header": "Mob Banners(%s)",
+  "effect.terrarian_banners.banner_group.header": "Mob Banners (%s)",
   "effect.terrarian_banners.banner_group.more": "...and %s more",
   "effect.terrarian_banners.mob_effect.minecraft.allay": "Allay Slayer",
   "effect.terrarian_banners.mob_effect.minecraft.armadillo": "Armadillo Slayer",
@@ -181,5 +181,15 @@
   "item.terrarian_banners.mob_banner.minecraft.zombie_nautilus": "Zombie Nautilus Banner",
   "item.terrarian_banners.mob_banner.minecraft.zombie_villager": "Zombie Villager Banner",
   "item.terrarian_banners.mob_banner.minecraft.zombified_piglin": "Zombified Piglin Banner",
-  "tab.terrarian_banners.terrarian_banners": "Terrarian Banners"
+  "tab.terrarian_banners.terrarian_banners": "Terrarian Banners",
+  "terrarian_banners.midnightconfig.damage_dealt_multiplier": "Damage dealt to Mob multiplier",
+  "terrarian_banners.midnightconfig.damage_taken_multiplier": "Damage taken from Mob multiplier",
+  "terrarian_banners.midnightconfig.effect_duration_seconds": "Effect duration(seconds)",
+  "terrarian_banners.midnightconfig.effect_header": "Effect Config:",
+  "terrarian_banners.midnightconfig.effect_radius": "Radius of effect",
+  "terrarian_banners.midnightconfig.kills_header": "Kills Config:",
+  "terrarian_banners.midnightconfig.kills_per_Banner": "Kills per banner",
+  "terrarian_banners.midnightconfig.kills_required_overrides": "Kills required override(s)",
+  "terrarian_banners.midnightconfig.require_player_kills": "Require player to kill?",
+  "terrarian_banners.midnightconfig.title": "Terrarian Banners"
 }

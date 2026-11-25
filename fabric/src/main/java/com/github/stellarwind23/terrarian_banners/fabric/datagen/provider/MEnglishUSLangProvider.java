@@ -33,6 +33,20 @@ public class MEnglishUSLangProvider extends FabricLanguageProvider {
             }
         }
 
+        //Config
+        translationBuilder.add("terrarian_banners.midnightconfig.title", "Terrarian Banners");
+        translationBuilder.add("terrarian_banners.midnightconfig.kills_header", "Kills Config:");
+        translationBuilder.add("terrarian_banners.midnightconfig.kills_per_Banner", "Kills per banner");
+        translationBuilder.add("terrarian_banners.midnightconfig.kills_required_overrides", "Kills required override(s)");
+        translationBuilder.add("terrarian_banners.midnightconfig.require_player_kills", "Require player to kill?");
+        translationBuilder.add("terrarian_banners.midnightconfig.effect_header", "Effect Config:");
+        translationBuilder.add("terrarian_banners.midnightconfig.effect_radius", "Radius of effect");
+        translationBuilder.add("terrarian_banners.midnightconfig.damage_taken_multiplier", "Damage taken from Mob multiplier");
+        translationBuilder.add("terrarian_banners.midnightconfig.damage_dealt_multiplier", "Damage dealt to Mob multiplier");
+        translationBuilder.add("terrarian_banners.midnightconfig.effect_duration_seconds", "Effect duration(seconds)");
+
+
+        //Tooltip
         translationBuilder.add("effect.terrarian_banners.banner_group", "Mob Banners");
         translationBuilder.add("effect.terrarian_banners.banner_group.header", "Mob Banners (%s)");
         translationBuilder.add("effect.terrarian_banners.banner_group.more", "...and %s more");

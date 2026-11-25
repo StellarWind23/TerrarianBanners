@@ -18,10 +18,10 @@ public final class TBBannerCombat {
         if (attacker == null) return damage;
 
         if (victim instanceof Player player && hasEffectFor(player, attacker.getType())) {
-            damage = (float) (damage * (1.0F * TBConfig.damage_taken_percent));
+            damage = (float) (damage * (1.0F * TBConfig.damage_taken_multiplier));
         }
         if (attacker instanceof Player player && hasEffectFor(player, victim.getType())) {
-            damage = (float) (damage * (1.0F * TBConfig.damage_dealt_percent));
+            damage = (float) (damage * (1.0F * TBConfig.damage_dealt_multiplier));
         }
         return damage;
     }
