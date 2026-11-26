@@ -70,31 +70,42 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.FOX, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xd5b69f), d("thin_border", 0xcc6920), e(EntityType.FOX)));
         put(out, EntityType.WOLF, TBBannerStyle.fromLayers(b("default", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
         put(out, EntityType.BEE, TBBannerStyle.fromLayers(b("default", 0xedc343), d("comb", 0xFC9600), d("border", 0x43241b), d("thin_border", 0xedc343), e(EntityType.BEE)));
-        put(out, EntityType.SNIFFER, TBBannerStyle.fromLayers(b("default", 0x871e09), d("border", 0x25ab70), d("thin_border", 0xFFFFFF), e(EntityType.SNIFFER)));
-        put(out, EntityType.OCELOT, TBBannerStyle.fromLayers(b("default", 0xefde7d), d("border", 0x564434), d("thin_border", 0xFFFFFF), e(EntityType.OCELOT)));
-        put(out, EntityType.PANDA, TBBannerStyle.fromLayers(b("default", 0xe7e7e7), d("border", 0x1b1b22), d("thin_border", 0xFFFFFF), e(EntityType.PANDA)));
-        put(out, EntityType.PARROT, TBBannerStyle.fromLayers(b("default", 0x0da70b), d("border", 0xff0000), d("thin_border", 0xFFFFFF), e(EntityType.PARROT)));
+
             //Night
         put(out, EntityType.CREAKING, TBBannerStyle.fromLayers(b("night", 0x5f5f5f), d("mini_boss_border", 0xfc7812), d("thin_mini_boss_border", 0xFFFFFF), e(EntityType.CREAKING)));
 
+        //Jungle
+        int jungleSkyColor = 0x87d9ea;
+        int jungleTreeColor = 0x398815;
+
+        put(out, EntityType.SNIFFER, TBBannerStyle.fromLayers(b("sky", jungleSkyColor), d("jungle", jungleTreeColor), d("border", 0x871e09), d("thin_border", 0x25ab70), e(EntityType.SNIFFER)));
+        put(out, EntityType.OCELOT, TBBannerStyle.fromLayers(b("sky", jungleSkyColor), d("jungle", jungleTreeColor), d("border", 0xefde7d), d("thin_border", 0x564434), e(EntityType.OCELOT)));
+        put(out, EntityType.PANDA, TBBannerStyle.fromLayers(b("sky", jungleSkyColor), d("jungle", jungleTreeColor), d("border", 0xe7e7e7), d("thin_border", 0x1b1b22), e(EntityType.PANDA)));
+        put(out, EntityType.PARROT, TBBannerStyle.fromLayers(b("sky", jungleSkyColor), d("jungle", jungleTreeColor), d("border", 0x0da70b), d("thin_border", 0xff0000), e(EntityType.PARROT)));
+
         //Grass
-        put(out, EntityType.RABBIT, TBBannerStyle.fromLayers(b("sky", 0x995f40), d("border", 0x734831), d("thin_border", 0xFFFFFF), e(EntityType.RABBIT)));
-        put(out, EntityType.CHICKEN, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xa1a1a1), d("thin_border", 0xa1a1a1), e(EntityType.CHICKEN)));
-        put(out, EntityType.COW, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xa1a1a1), d("thin_border", 0x443626), e(EntityType.COW)));
-        put(out, EntityType.PIG, TBBannerStyle.fromLayers(b("sky", 0xf0a5a2), d("border", 0xdb635f), d("thin_border", 0xFFFFFF), e(EntityType.PIG)));
-        put(out, EntityType.SHEEP, TBBannerStyle.fromLayers(b("sky", 0xe7e7e7), d("border", 0xffb5b5), d("thin_border", 0xFFFFFF), e(EntityType.SHEEP)));
-        put(out, EntityType.HORSE, TBBannerStyle.fromLayers(b("sky", 0xc09e7d), d("angled_border", 0xeee500), d("thin_angled_border", 0xFFFFFF), e(EntityType.HORSE)));
-        put(out, EntityType.DONKEY, TBBannerStyle.fromLayers(b("sky", 0x534539), d("border", 0x867566), d("thin_border", 0xFFFFFF), e(EntityType.DONKEY)));
-        put(out, EntityType.MULE, TBBannerStyle.fromLayers(b("default", 0x1b0200), d("border", 0x51331d), d("thin_border", 0xFFFFFF), e(EntityType.MULE)));
-        put(out, EntityType.GOAT, TBBannerStyle.fromLayers(b("sky", 0xa5947c), d("border", 0x55493e), d("thin_border", 0xFFFFFF), e(EntityType.GOAT)));
-        put(out, EntityType.MOOSHROOM, TBBannerStyle.fromLayers(b("default", 0xa00f10), d("border", 0xb7b7b7), d("thin_border", 0xFFFFFF), e(EntityType.MOOSHROOM)));
+        int grassSkyColor = 0x87d9ea;
+        int grassColor = 0x59b61e;
+        int grassNightSkyColor = 0xffffff;
+        int grassNightColor = 326710;
+
+        put(out, EntityType.RABBIT, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x995f40), d("thin_border", 0x734831), e(EntityType.RABBIT)));
+        put(out, EntityType.CHICKEN, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa1a1a1), d("thin_border", 0xff0000), e(EntityType.CHICKEN)));
+        put(out, EntityType.COW, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x443626), d("thin_border", 0x443626), e(EntityType.COW)));
+        put(out, EntityType.PIG, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xf0a5a2), d("thin_border", 0xdb635f), e(EntityType.PIG)));
+        put(out, EntityType.SHEEP, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xe7e7e7), d("thin_border", 0xffb5b5), e(EntityType.SHEEP)));
+        put(out, EntityType.HORSE, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("angled_border", 0xc09e7d), d("thin_angled_border", 0xeee500), e(EntityType.HORSE)));
+        put(out, EntityType.DONKEY, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x534539), d("thin_border", 0x867566), e(EntityType.DONKEY)));
+        put(out, EntityType.MULE, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x1b0200), d("thin_border", 0x51331d), e(EntityType.MULE)));
+        put(out, EntityType.GOAT, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa5947c), d("thin_border", 0x55493e), e(EntityType.GOAT)));
+        put(out, EntityType.MOOSHROOM, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa00f10), d("thin_border", 0xb7b7b7), e(EntityType.MOOSHROOM)));
             //Night
-        put(out, EntityType.CREEPER, TBBannerStyle.fromLayers(b("night", 0x0da70b), d("border", 0x000000), d("thin_border", 0xFFFFFF), e(EntityType.CREEPER)));
-        put(out, EntityType.SKELETON, TBBannerStyle.fromLayers(b("night", 0xc1c1c1), d("border", 0x494949), d("thin_border", 0xFFFFFF), e(EntityType.SKELETON)));
-        put(out, EntityType.SKELETON_HORSE, TBBannerStyle.fromLayers(b("night", 0x68684f), d("border", 0xe5e5d8), d("thin_border", 0xFFFFFF), e(EntityType.SKELETON_HORSE)));
-        put(out, EntityType.SPIDER, TBBannerStyle.fromLayers(b("night", 0x342d27), d("border", 0xa80e0e), d("thin_border", 0xFFFFFF), e(EntityType.SPIDER)));
-        put(out, EntityType.ZOMBIE, TBBannerStyle.fromLayers(b("night", 0x00afaf), d("border", 0x799c65), d("thin_border", 0xFFFFFF), e(EntityType.ZOMBIE)));
-        put(out, EntityType.ZOMBIE_HORSE, TBBannerStyle.fromLayers(b("night", 0x315234), d("border", 0x97c284), d("thin_border", 0xFFFFFF), e(EntityType.ZOMBIE_HORSE)));
+        put(out, EntityType.CREEPER, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x0da70b), d("thin_border", 0x000000), e(EntityType.CREEPER)));
+        put(out, EntityType.SKELETON, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0xc1c1c1), d("thin_border", 0x494949), e(EntityType.SKELETON)));
+        put(out, EntityType.SKELETON_HORSE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x68684f), d("thin_border", 0xe5e5d8), e(EntityType.SKELETON_HORSE)));
+        put(out, EntityType.SPIDER, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x342d27), d("thin_border", 0xa80e0e), e(EntityType.SPIDER)));
+        put(out, EntityType.ZOMBIE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x00afaf), d("thin_border", 0x799c65), e(EntityType.ZOMBIE)));
+        put(out, EntityType.ZOMBIE_HORSE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x315234), d("thin_border", 0x97c284), e(EntityType.ZOMBIE_HORSE)));
 
         //Savanna
         put(out, EntityType.ARMADILLO, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0x824848), d("thin_border", 0xFFFFFF), e(EntityType.ARMADILLO)));

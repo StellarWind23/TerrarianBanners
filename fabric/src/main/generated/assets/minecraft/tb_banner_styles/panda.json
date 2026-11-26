@@ -1,17 +1,22 @@
 {
   "layers": [
     {
-      "color": "#E7E7E7",
+      "color": "#87D9EA",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/default"
+      "texture": "terrarian_banners:entity/mob_banner/base/sky"
     },
     {
-      "color": "#1B1B22",
+      "color": "#398815",
+      "name": "jungle",
+      "texture": "terrarian_banners:entity/mob_banner/detail/jungle"
+    },
+    {
+      "color": "#E7E7E7",
       "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
-      "color": "#FFFFFF",
+      "color": "#1B1B22",
       "name": "thin_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     },
