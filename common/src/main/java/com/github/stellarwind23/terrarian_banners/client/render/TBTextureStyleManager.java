@@ -34,6 +34,16 @@ public class TBTextureStyleManager extends SimpleJsonResourceReloadListener<TBTe
 
     @Override
     protected void apply(@NonNull Map<Identifier, TBTextureStyle> loadedStyles, @NonNull ResourceManager manager, @NonNull ProfilerFiller profiler) {
+
+        //Filter bad entries
+        List<Identifier> toRemove = new ArrayList<>();
+        for(Map.Entry<Identifier, TBTextureStyle> e : loadedStyles.entrySet()) {
+            if(!e.getValue().styleType().getPath().equals(name)) toRemove.add(e.getKey());
+        }
+        for(Identifier i : toRemove) {
+            loadedStyles.remove(i);
+        }
+
         STYLES = loadedStyles;
         TerrarianBanners.LOGGER.info("Loaded {} texture styles for {}", loadedStyles.size(), name);
         
