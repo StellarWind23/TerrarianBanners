@@ -6,14 +6,14 @@
       "texture": "terrarian_banners:entity/mob_banner/base/ocean"
     },
     {
-      "color": "#8FF1D7",
-      "name": "border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/border"
-    },
-    {
       "color": "#B4ECDF",
       "name": "bubble",
       "texture": "terrarian_banners:entity/mob_banner/detail/bubble"
+    },
+    {
+      "color": "#8FF1D7",
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
       "color": "#799C65",
