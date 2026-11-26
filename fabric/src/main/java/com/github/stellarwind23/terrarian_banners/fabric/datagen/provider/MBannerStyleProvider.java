@@ -140,13 +140,12 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.DROWNED, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("bubble", oceanBubbleColor), d("border", 0x8ff1d7), d("thin_border", 0x799c65), e(EntityType.DROWNED)));
 
         //End
-        int endColor = 0xb42dd6;
-        int endIslandColor = 0xaebb74;
+        int endColor = 0x6c5194;
 
-        put(out, EntityType.ENDER_DRAGON, TBBannerStyle.fromLayers(b("noise", endColor), d("island", endIslandColor), d("boss_border", 0xe079fa), d("thin_boss_border", 0xFFFFFF), e(EntityType.ENDER_DRAGON)));
-        put(out, EntityType.ENDERMAN, TBBannerStyle.fromLayers(b("noise", endColor), d("island", endIslandColor), d("border", 0xcc00fa), d("thin_border", 0xFFFFFF), e(EntityType.ENDERMAN)));
-        put(out, EntityType.ENDERMITE, TBBannerStyle.fromLayers(b("noise", endColor), d("island", endIslandColor), d("border", 0x6e6e6e), d("thin_border", 0xFFFFFF), e(EntityType.ENDERMITE)));
-        put(out, EntityType.SHULKER, TBBannerStyle.fromLayers(b("noise", endColor), d("island", endIslandColor), d("border", 0x4d3852), d("thin_border", 0xFFFFFF), e(EntityType.SHULKER)));
+        put(out, EntityType.ENDER_DRAGON, TBBannerStyle.fromLayers(b("end", endColor), d("boss_border", 0x0b0b0b), d("thin_boss_border", 0xd63cfa), e(EntityType.ENDER_DRAGON)));
+        put(out, EntityType.ENDERMAN, TBBannerStyle.fromLayers(b("end", endColor), d("border", 0x0b0b0b), d("thin_border", 0xd63cfa), e(EntityType.ENDERMAN)));
+        put(out, EntityType.ENDERMITE, TBBannerStyle.fromLayers(b("end", endColor), d("border", 0x442e5a), d("thin_border", 0x8c4175), e(EntityType.ENDERMITE)));
+        put(out, EntityType.SHULKER, TBBannerStyle.fromLayers(b("end", endColor), d("border", 0x8e618e), d("thin_border", 0xd0d393), e(EntityType.SHULKER)));
 
         //Pillager
         put(out, EntityType.VEX, TBBannerStyle.fromLayers(b("default", 0x7a90a4), d("border", 0xe8edf1), d("thin_border", 0xFFFFFF), e(EntityType.VEX)));

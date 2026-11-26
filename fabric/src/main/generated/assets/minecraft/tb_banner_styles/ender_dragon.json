@@ -1,22 +1,17 @@
 {
   "layers": [
     {
-      "color": "#B42DD6",
+      "color": "#6C5194",
       "name": "base",
-      "texture": "terrarian_banners:entity/mob_banner/base/noise"
+      "texture": "terrarian_banners:entity/mob_banner/base/end"
     },
     {
-      "color": "#AEBB74",
-      "name": "island",
-      "texture": "terrarian_banners:entity/mob_banner/detail/island"
-    },
-    {
-      "color": "#E079FA",
+      "color": "#0B0B0B",
       "name": "boss_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/boss_border"
     },
     {
-      "color": "#FFFFFF",
+      "color": "#D63CFA",
       "name": "thin_boss_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/thin_boss_border"
     },
