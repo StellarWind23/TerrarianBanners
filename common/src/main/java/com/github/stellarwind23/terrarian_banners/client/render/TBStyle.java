@@ -13,14 +13,14 @@ import java.util.Optional;
 import java.util.Set;
 
 /** Layers are drawn in list order: the first is the bottom layer, the last is on top. */
-public record TBTextureStyle(List<Layer> layers) {
+public record TBStyle(List<Layer> layers) {
 
-    public TBTextureStyle {
+    public TBStyle {
         layers = List.copyOf(layers);
     }
 
-    public static TBTextureStyle fromLayers(Layer... layers) {
-        return new TBTextureStyle(List.of(layers));
+    public static TBStyle fromLayers(Layer... layers) {
+        return new TBStyle(List.of(layers));
     }
 
     public Optional<Layer> layer(String name) {
@@ -38,18 +38,28 @@ public record TBTextureStyle(List<Layer> layers) {
                 TextColor.CODEC.optionalFieldOf("color").forGetter(Layer::color)
         ).apply(i, Layer::new));
 
-        /** A texture in any namespace. */
-        public static Layer of(String name, Identifier texture) {
-            return new Layer(name, texture, Optional.empty());
+        /**
+         * Layer with texture in any namespace.
+         * @param offsetName Name of offset list to be used for texture.
+         * @param texture Identifier pointing to texture.
+         * @return new Layer
+         */
+        public static Layer of(String offsetName, Identifier texture) {
+            return new Layer(offsetName, texture, Optional.empty());
         }
 
-        /** A texture in this mod's namespace. */
-        public static Layer mod(String name, String path) {
-            return of(name, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, path));
+        /**
+         * Layer with texture in terrarian_banners namespace.
+         * @param offsetName Name of offset list to be used for texture.
+         * @param path path of texture in terrarian_banners.
+         * @return new Layer
+         */
+        public static Layer defaultOf(String offsetName, String path) {
+            return of(offsetName, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, path));
         }
 
         public Layer withColor(TextColor color) {
-            return new Layer(name, texture, offsets, Optional.of(color));
+            return new Layer(name, texture, Optional.of(color));
         }
 
         public Layer withColor(int rgb) {
@@ -65,10 +75,10 @@ public record TBTextureStyle(List<Layer> layers) {
         }
     }
 
-    public static final Codec<TBTextureStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
-            Layer.CODEC.listOf().validate(TBTextureStyle::checkUniqueNames)
-                    .fieldOf("layers").forGetter(TBTextureStyle::layers)
-    ).apply(i, TBTextureStyle::new));
+    public static final Codec<TBStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
+            Layer.CODEC.listOf().validate(TBStyle::checkUniqueNames)
+                    .fieldOf("layers").forGetter(TBStyle::layers)
+    ).apply(i, TBStyle::new));
 
     // ---- Placement of the emblem on each canvas. Emblem PNGs are 16x16. ----
     private static DataResult<List<Layer>> checkUniqueNames(List<Layer> layers) {

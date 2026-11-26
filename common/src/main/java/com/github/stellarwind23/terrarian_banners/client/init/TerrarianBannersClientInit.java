@@ -1,7 +1,8 @@
 package com.github.stellarwind23.terrarian_banners.client.init;
 
-import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyleManager;
+import com.github.stellarwind23.terrarian_banners.client.render.TBStyleManager;
 import com.github.stellarwind23.terrarian_banners.client.render.TBMobBannerRenderer;
+import com.github.stellarwind23.terrarian_banners.client.render.TBStyleTypeManager;
 import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import dev.architectury.registry.ReloadListenerRegistry;
@@ -13,7 +14,13 @@ public class TerrarianBannersClientInit {
 
     public static void init() {
         BlockEntityRendererRegistry.register(TBBlockEntityTypes.MOB_BANNER.get(), TBMobBannerRenderer::new);
-        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.EFFECT, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/effect"));
-        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.MOB_BANNER, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/mob_banner"));
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBStyleTypeManager.INSTANCE, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_types"));
+
+        for(TBStyleManager manager : TBStyleManager.STYLE_MANAGERS) {
+            ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, manager, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, ));
+        }
+
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBStyleManager.EFFECT, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/effect"));
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBStyleManager.MOB_BANNER, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/mob_banner"));
     }
 }
