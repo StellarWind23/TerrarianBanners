@@ -85,13 +85,13 @@ public class MBannerStyleProvider implements DataProvider {
 
         //Grass
         int grassSkyColor = 0x87d9ea;
-        int grassColor = 0x59b61e;
+        int grassColor = 0x447e1f;
         int grassNightSkyColor = 0xffffff;
-        int grassNightColor = 326710;
+        int grassNightColor = 0x2f4720;
 
         put(out, EntityType.RABBIT, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x995f40), d("thin_border", 0x734831), e(EntityType.RABBIT)));
         put(out, EntityType.CHICKEN, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa1a1a1), d("thin_border", 0xff0000), e(EntityType.CHICKEN)));
-        put(out, EntityType.COW, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x443626), d("thin_border", 0x443626), e(EntityType.COW)));
+        put(out, EntityType.COW, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0x443626), d("thin_border", 0xe7e7e7), e(EntityType.COW)));
         put(out, EntityType.PIG, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xf0a5a2), d("thin_border", 0xdb635f), e(EntityType.PIG)));
         put(out, EntityType.SHEEP, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xe7e7e7), d("thin_border", 0xffb5b5), e(EntityType.SHEEP)));
         put(out, EntityType.HORSE, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("angled_border", 0xc09e7d), d("thin_angled_border", 0xeee500), e(EntityType.HORSE)));
