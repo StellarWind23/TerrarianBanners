@@ -125,14 +125,14 @@ public class MBannerStyleProvider implements DataProvider {
 
         put(out, EntityType.COD, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0xc1a76a), d("bubble", 0xb4ecdf), d("thin_border", 0xe5c48b), e(EntityType.COD)));
         put(out, EntityType.SALMON, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0xa00f10), d("bubble", 0xb4ecdf), d("thin_border", 0x0e8474), e(EntityType.SALMON)));
-        put(out, EntityType.DOLPHIN, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0x223b4d), d("bubble", 0xb4ecdf), d("thin_border", 0xf9f9f9), e(EntityType.DOLPHIN)));
+        put(out, EntityType.DOLPHIN, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0xf9f9f90), d("bubble", 0xb4ecdf), d("thin_border", 0x223b4d), e(EntityType.DOLPHIN)));
         put(out, EntityType.SQUID, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0x223b4d), d("bubble", 0xb4ecdf), d("thin_border", 0x708899), e(EntityType.SQUID)));
         put(out, EntityType.TROPICAL_FISH, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0xef6915), d("bubble", 0xb4ecdf), d("thin_border", 0xfff9ef), e(EntityType.TROPICAL_FISH)));
         put(out, EntityType.TURTLE, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("bubble", 0xb4ecdf), d("border", 0x00afaf), d("thin_border", 0xFFFFFF), e(EntityType.TURTLE)));
         put(out, EntityType.NAUTILUS, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("bubble", 0xb4ecdf), d("angled_border", 0xcbbea7), d("thin_angled_border", 0xd0523f), e(EntityType.NAUTILUS)));
         put(out, EntityType.ZOMBIE_NAUTILUS, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("bubble", 0xb4ecdf), d("alt_angled_border", 0xdee1c8), d("thin_alt_angled_border", 0x7ea623), e(EntityType.ZOMBIE_NAUTILUS)));
         put(out, EntityType.GUARDIAN, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("square_border",0x5a8272 ), d("bubble", 0xb4ecdf), d("thin_square_border", 0xf17d30), e(EntityType.GUARDIAN)));
-        put(out, EntityType.ELDER_GUARDIAN, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("boss_border", 0xceccba), d("bubble", 0xb4ecdf), d("thin_boss_border", 0x747693), e(EntityType.ELDER_GUARDIAN)));
+        put(out, EntityType.ELDER_GUARDIAN, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("mini_boss_border", 0xceccba), d("bubble", 0xb4ecdf), d("thin_mini_boss_border", 0x747693), e(EntityType.ELDER_GUARDIAN)));
         put(out, EntityType.DROWNED, TBBannerStyle.fromLayers(b("ocean", oceanColor), d("border", 0x8ff1d7), d("bubble", 0xb4ecdf), d("thin_border", 0x799c65), e(EntityType.DROWNED)));
 
         //End
