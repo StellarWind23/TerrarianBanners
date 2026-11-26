@@ -100,11 +100,11 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.GOAT, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa5947c), d("thin_border", 0x55493e), e(EntityType.GOAT)));
         put(out, EntityType.MOOSHROOM, TBBannerStyle.fromLayers(b("sky", grassSkyColor), d("hill", grassColor), d("border", 0xa00f10), d("thin_border", 0xb7b7b7), e(EntityType.MOOSHROOM)));
             //Night
-        put(out, EntityType.CREEPER, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x0da70b), d("thin_border", 0x000000), e(EntityType.CREEPER)));
+        put(out, EntityType.CREEPER, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x000000), d("thin_border", 0x0da70b), e(EntityType.CREEPER)));
         put(out, EntityType.SKELETON, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0xc1c1c1), d("thin_border", 0x494949), e(EntityType.SKELETON)));
         put(out, EntityType.SKELETON_HORSE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x68684f), d("thin_border", 0xe5e5d8), e(EntityType.SKELETON_HORSE)));
         put(out, EntityType.SPIDER, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x342d27), d("thin_border", 0xa80e0e), e(EntityType.SPIDER)));
-        put(out, EntityType.ZOMBIE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x00afaf), d("thin_border", 0x799c65), e(EntityType.ZOMBIE)));
+        put(out, EntityType.ZOMBIE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x799c65), d("thin_border", 0x00afaf), e(EntityType.ZOMBIE)));
         put(out, EntityType.ZOMBIE_HORSE, TBBannerStyle.fromLayers(b("night", grassNightSkyColor), d("hill", grassNightColor), d("border", 0x315234), d("thin_border", 0x97c284), e(EntityType.ZOMBIE_HORSE)));
 
         //Savanna

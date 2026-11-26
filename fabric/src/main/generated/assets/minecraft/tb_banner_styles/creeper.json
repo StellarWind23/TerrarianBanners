@@ -11,12 +11,12 @@
       "texture": "terrarian_banners:entity/mob_banner/detail/hill"
     },
     {
-      "color": "#0DA70B",
+      "color": "#000000",
       "name": "border",
       "texture": "terrarian_banners:entity/mob_banner/detail/border"
     },
     {
-      "color": "#000000",
+      "color": "#0DA70B",
       "name": "thin_border",
       "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
     },
