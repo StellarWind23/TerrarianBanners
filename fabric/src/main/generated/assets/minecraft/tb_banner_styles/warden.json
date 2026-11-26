@@ -7,13 +7,13 @@
     },
     {
       "color": "#39D6E0",
-      "name": "boss_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/boss_border"
+      "name": "mini_boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/mini_boss_border"
     },
     {
       "color": "#FFFFFF",
-      "name": "thin_boss_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/thin_boss_border"
+      "name": "thin_mini_boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_mini_boss_border"
     },
     {
       "name": "emblem",
