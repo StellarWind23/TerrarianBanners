@@ -12,13 +12,13 @@
     },
     {
       "color": "#544937",
-      "name": "alt_angled_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/alt_angled_border"
+      "name": "angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/angled_border"
     },
     {
       "color": "#1A1714",
-      "name": "thin_alt_angled_border",
-      "texture": "terrarian_banners:entity/mob_banner/detail/thin_alt_angled_border"
+      "name": "thin_angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_angled_border"
     },
     {
       "name": "emblem",

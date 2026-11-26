@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.client.init;
 
-import com.github.stellarwind23.terrarian_banners.client.render.TBBannerStyleManager;
+import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyleManager;
 import com.github.stellarwind23.terrarian_banners.client.render.TBMobBannerRenderer;
 import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
@@ -13,6 +13,6 @@ public class TerrarianBannersClientInit {
 
     public static void init() {
         BlockEntityRendererRegistry.register(TBBlockEntityTypes.MOB_BANNER.get(), TBMobBannerRenderer::new);
-        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBBannerStyleManager.INSTANCE, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_banner_styles"));
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.INSTANCE, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles"));
     }
 }

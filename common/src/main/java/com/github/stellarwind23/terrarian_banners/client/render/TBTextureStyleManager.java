@@ -11,24 +11,24 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 
-public class TBBannerStyleManager extends SimpleJsonResourceReloadListener<TBBannerStyle> {
+public class TBTextureStyleManager extends SimpleJsonResourceReloadListener<TBTextureStyle> {
 
-    public static final TBBannerStyleManager INSTANCE = new TBBannerStyleManager();
+    public static final TBTextureStyleManager INSTANCE = new TBTextureStyleManager();
 
-    private Map<Identifier, TBBannerStyle> styles = Map.of();
+    private Map<Identifier, TBTextureStyle> styles = Map.of();
 
-    private TBBannerStyleManager() {
-        super(TBBannerStyle.CODEC, FileToIdConverter.json("tb_banner_styles"));
+    private TBTextureStyleManager() {
+        super(TBTextureStyle.CODEC, FileToIdConverter.json("tb_banner_styles"));
     }
 
     @Override
-    protected void apply(@NonNull Map<Identifier, TBBannerStyle> prepared, @NonNull ResourceManager manager, @NonNull ProfilerFiller profiler) {
+    protected void apply(@NonNull Map<Identifier, TBTextureStyle> prepared, @NonNull ResourceManager manager, @NonNull ProfilerFiller profiler) {
         styles = Map.copyOf(prepared);
         TerrarianBanners.LOGGER.info("Loaded {} banner styles", styles.size());
         TBBannerTextures.reload(styles, manager);
     }
 
-    public TBBannerStyle get(@Nullable Identifier mob) {
-        return mob == null ? TBBannerStyle.NULL_STYLE : styles.getOrDefault(mob, TBBannerStyle.NULL_STYLE);
+    public TBTextureStyle get(@Nullable Identifier mob) {
+        return mob == null ? TBTextureStyle.NULL_STYLE : styles.getOrDefault(mob, TBTextureStyle.NULL_STYLE);
     }
 }

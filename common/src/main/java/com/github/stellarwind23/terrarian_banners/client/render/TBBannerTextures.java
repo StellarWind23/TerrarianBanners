@@ -23,7 +23,7 @@ public final class TBBannerTextures {
     private static final int SIZE = 64;
 
     // A real, loadable path for the moments before the first reload has finished
-    private static final Identifier FALLBACK = TBBannerStyle.NULL_STYLE.layers().get(1).texture().withPrefix("textures/").withSuffix(".png");
+    private static final Identifier FALLBACK = TBTextureStyle.NULL_STYLE.layers().get(1).texture().withPrefix("textures/").withSuffix(".png");
 
     private static Map<Identifier, Identifier> byMob = Map.of();
     private static Identifier neutral = FALLBACK;
@@ -38,7 +38,7 @@ public final class TBBannerTextures {
     }
 
     /** Called from the style manager's apply(), which runs on the main thread. Rebuilds every banner texture. */
-    public static void reload(Map<Identifier, TBBannerStyle> styles, ResourceManager manager) {
+    public static void reload(Map<Identifier, TBTextureStyle> styles, ResourceManager manager) {
         TextureManager textures = Minecraft.getInstance().getTextureManager();
         owned.forEach(textures::release);
         owned = List.of();
@@ -47,7 +47,7 @@ public final class TBBannerTextures {
 
         Map<Identifier, Identifier> mobs = new HashMap<>();
         try (Baker baker = new Baker(manager)) {
-            neutral = baker.get(TBBannerStyle.NULL_STYLE);
+            neutral = baker.get(TBTextureStyle.NULL_STYLE);
             styles.forEach((mob, style) -> mobs.put(mob, baker.get(style)));
             owned = List.copyOf(baker.baked.values());
         }
@@ -60,18 +60,18 @@ public final class TBBannerTextures {
         private final ResourceManager manager;
         private final Map<Identifier, NativeImage> sources = new HashMap<>();
         private final Set<Identifier> missing = new HashSet<>();
-        private final Map<TBBannerStyle, Identifier> baked = new HashMap<>();
+        private final Map<TBTextureStyle, Identifier> baked = new HashMap<>();
 
         Baker(ResourceManager manager) { this.manager = manager; }
 
-        Identifier get(TBBannerStyle style) {
+        Identifier get(TBTextureStyle style) {
             return baked.computeIfAbsent(style, this::bake);
         }
 
-        private Identifier bake(TBBannerStyle style) {
+        private Identifier bake(TBTextureStyle style) {
             NativeImage image = new NativeImage(SIZE, SIZE, true);
 
-            for (TBBannerStyle.Layer layer : style.layers()) {
+            for (TBTextureStyle.Layer layer : style.layers()) {
                 composite(image, layer);
             }
 
@@ -80,10 +80,10 @@ public final class TBBannerTextures {
             return id;
         }
 
-        private void composite(NativeImage dst, TBBannerStyle.Layer layer) {
+        private void composite(NativeImage dst, TBTextureStyle.Layer layer) {
             NativeImage src = source(layer);
             if (src == null && layer.name().equals("emblem")) {
-                src = source(TBBannerStyle.NULL_EMBLEM); //fallback to default
+                src = source(TBTextureStyle.NULL_EMBLEM); //fallback to default
             }
             if (src == null) return;
             int tint = layer.tint();
@@ -97,7 +97,7 @@ public final class TBBannerTextures {
             }
         }
 
-        private @Nullable NativeImage source(TBBannerStyle.Layer layer) {
+        private @Nullable NativeImage source(TBTextureStyle.Layer layer) {
             Identifier path = layer.texture().withPrefix("textures/").withSuffix(".png");
 
             NativeImage cached = sources.get(path);
