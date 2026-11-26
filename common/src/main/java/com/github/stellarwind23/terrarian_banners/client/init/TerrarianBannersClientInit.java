@@ -13,6 +13,7 @@ public class TerrarianBannersClientInit {
 
     public static void init() {
         BlockEntityRendererRegistry.register(TBBlockEntityTypes.MOB_BANNER.get(), TBMobBannerRenderer::new);
-        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.INSTANCE, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles"));
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.EFFECT, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/effect"));
+        ReloadListenerRegistry.register(PackType.CLIENT_RESOURCES, TBTextureStyleManager.MOB_BANNER, Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "tb_texture_styles/mob_banner"));
     }
 }

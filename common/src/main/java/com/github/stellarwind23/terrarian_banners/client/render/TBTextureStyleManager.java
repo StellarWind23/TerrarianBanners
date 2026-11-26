@@ -7,28 +7,24 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 
 public class TBTextureStyleManager extends SimpleJsonResourceReloadListener<TBTextureStyle> {
 
-    public static final TBTextureStyleManager INSTANCE = new TBTextureStyleManager();
+    public static final TBTextureStyleManager MOB_BANNER = new TBTextureStyleManager(TBTextureType.MOB_BANNER);
+    public static final TBTextureStyleManager EFFECT = new TBTextureStyleManager(TBTextureType.EFFECT);
 
-    private Map<Identifier, TBTextureStyle> styles = Map.of();
+    private final TBTextureType kind;
 
-    private TBTextureStyleManager() {
-        super(TBTextureStyle.CODEC, FileToIdConverter.json("tb_banner_styles"));
+    private TBTextureStyleManager(TBTextureType kind) {
+        super(TBTextureStyle.CODEC, FileToIdConverter.json(kind.styleFolder()));
+        this.kind = kind;
     }
 
     @Override
     protected void apply(@NonNull Map<Identifier, TBTextureStyle> prepared, @NonNull ResourceManager manager, @NonNull ProfilerFiller profiler) {
-        styles = Map.copyOf(prepared);
-        TerrarianBanners.LOGGER.info("Loaded {} banner styles", styles.size());
-        TBBannerTextures.reload(styles, manager);
-    }
-
-    public TBTextureStyle get(@Nullable Identifier mob) {
-        return mob == null ? TBTextureStyle.NULL_STYLE : styles.getOrDefault(mob, TBTextureStyle.NULL_STYLE);
+        TerrarianBanners.LOGGER.info("Loaded {} {} texture styles", prepared.size(), kind.folder());
+        TBTextures.reload(kind, prepared, manager);
     }
 }

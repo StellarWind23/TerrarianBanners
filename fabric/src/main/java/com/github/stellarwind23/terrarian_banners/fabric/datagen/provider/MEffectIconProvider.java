@@ -1,7 +1,7 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyle;
-import com.github.stellarwind23.terrarian_banners.client.render.TBBannerTextures;
+import com.github.stellarwind23.terrarian_banners.client.render.TBTextures;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.google.common.hash.Hashing;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -75,7 +75,7 @@ public class MEffectIconProvider implements DataProvider {
                 if (dx < 0 || dy < 0 || dx >= ICON || dy >= ICON) continue;
                 int src = emblem.getRGB(box.x + x, box.y + y);
                 if ((src >>> 24) == 0) continue;
-                out.setRGB(dx, dy, TBBannerTextures.over(src, out.getRGB(dx, dy)));
+                out.setRGB(dx, dy, TBTextures.over(src, out.getRGB(dx, dy)));
             }
         }
         return out;

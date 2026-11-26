@@ -22,7 +22,7 @@ public class TBMobBannerSpecialRenderer implements SpecialModelRenderer<Identifi
 
     @Override
     public @Nullable Identifier extractArgument(ItemStack stack) {
-        return TBBannerTextures.forMob(stack.get(TBComponentTypes.MOB_BANNER.get()));
+        return TBTextures.forMob(stack.get(TBComponentTypes.MOB_BANNER.get()));
     }
 
     @Override
