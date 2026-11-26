@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.client.effect;
 
-import com.github.stellarwind23.terrarian_banners.client.render.TBStyleType;
+import com.github.stellarwind23.terrarian_banners.client.render.TBStyleTypeManager;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextures;
 import com.github.stellarwind23.terrarian_banners.content.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBMobBannerEffect;
@@ -122,7 +122,7 @@ public final class TBEffectGrouping {
     }
 
     private static void drawIcon(GuiGraphics g, RenderPipeline pipeline, Identifier mob, int x, int y, int w, int h, int color) {
-        int s = TBStyleType.EFFECT.size();
+        int s = TBStyleTypeManager.INSTANCE.getType(Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "effect")).size();
         g.blit(pipeline, TBTextures.effect(mob), x, y, 0.0F, 0.0F, w, h, s, s, s, s, color);
     }
 

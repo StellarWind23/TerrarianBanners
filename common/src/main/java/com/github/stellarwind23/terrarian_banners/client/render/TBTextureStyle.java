@@ -13,14 +13,14 @@ import java.util.Optional;
 import java.util.Set;
 
 /** Layers are drawn in list order: the first is the bottom layer, the last is on top. */
-public record TBStyle(List<Layer> layers) {
+public record TBTextureStyle(Identifier styleType, List<Layer> layers) {
 
-    public TBStyle {
+    public TBTextureStyle {
         layers = List.copyOf(layers);
     }
 
-    public static TBStyle fromLayers(Layer... layers) {
-        return new TBStyle(List.of(layers));
+    public static TBTextureStyle fromLayers(Identifier styleType, Layer... layers) {
+        return new TBTextureStyle(styleType, List.of(layers));
     }
 
     public Optional<Layer> layer(String name) {
@@ -75,10 +75,11 @@ public record TBStyle(List<Layer> layers) {
         }
     }
 
-    public static final Codec<TBStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
-            Layer.CODEC.listOf().validate(TBStyle::checkUniqueNames)
-                    .fieldOf("layers").forGetter(TBStyle::layers)
-    ).apply(i, TBStyle::new));
+    public static final Codec<TBTextureStyle> CODEC = RecordCodecBuilder.create(i -> i.group(
+            Identifier.CODEC.fieldOf("style_type").forGetter(TBTextureStyle::styleType),
+            Layer.CODEC.listOf().validate(TBTextureStyle::checkUniqueNames)
+                    .fieldOf("layers").forGetter(TBTextureStyle::layers)
+    ).apply(i, TBTextureStyle::new));
 
     // ---- Placement of the emblem on each canvas. Emblem PNGs are 16x16. ----
     private static DataResult<List<Layer>> checkUniqueNames(List<Layer> layers) {

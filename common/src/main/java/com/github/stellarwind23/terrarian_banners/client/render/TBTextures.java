@@ -38,7 +38,7 @@ public final class TBTextures {
     }
 
     /** Main thread, from a style manager's apply(). Rebuilds every texture of one kind. */
-    public static void reload(TBStyleType kind, Map<Identifier, TBStyle> styles, ResourceManager manager) {
+    public static void reload(TBStyleType kind, Map<Identifier, TBTextureStyle> styles, ResourceManager manager) {
         TextureManager textures = Minecraft.getInstance().getTextureManager();
         Bank old = BANKS.remove(kind);
         if (old != null) old.owned().forEach(textures::release);
@@ -58,36 +58,36 @@ public final class TBTextures {
         private final ResourceManager manager;
         private final Map<Identifier, NativeImage> sources = new HashMap<>();
         private final Set<Identifier> missing = new HashSet<>();
-        private final Map<TBStyle, Identifier> baked = new HashMap<>();
+        private final Map<TBTextureStyle, Identifier> baked = new HashMap<>();
 
         Baker(TBStyleType kind, ResourceManager manager) {
             this.kind = kind;
             this.manager = manager;
         }
 
-        Identifier get(TBStyle style) {
+        Identifier get(TBTextureStyle style) {
             return baked.computeIfAbsent(style, this::bake);
         }
 
-        private Identifier bake(TBStyle style) {
+        private Identifier bake(TBTextureStyle style) {
             NativeImage image = new NativeImage(kind.size(), kind.size(), true);   // zero-filled = transparent
-            for (TBStyle.Layer layer : style.layers()) composite(image, layer);
+            for (TBTextureStyle.Layer layer : style.layers()) composite(image, layer);
 
             Identifier id = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "dynamic/" + kind.folder() + "/" + nextId++);
             Minecraft.getInstance().getTextureManager().register(id, new DynamicTexture(id::toString, image));
             return id;
         }
 
-        private void composite(NativeImage dst, TBStyle.Layer layer) {
+        private void composite(NativeImage dst, TBTextureStyle.Layer layer) {
             NativeImage src = source(layer);
-            if (src == null && layer.name().equals("emblem")) src = source(TBStyle.NULL_EMBLEM);
+            if (src == null && layer.name().equals("emblem")) src = source(TBTextureStyle.NULL_EMBLEM);
             if (src == null) return;
 
             int tint = layer.tint();
-            for (TBStyle.Offset offset : layer.offsets()) blend(dst, src, offset, tint);
+            for (TBTextureStyle.Offset offset : layer.offsets()) blend(dst, src, offset, tint);
         }
 
-        private static void blend(NativeImage dst, NativeImage src, TBStyle.Offset offset, int tint) {
+        private static void blend(NativeImage dst, NativeImage src, TBTextureStyle.Offset offset, int tint) {
             for (int y = 0; y < src.getHeight(); y++) {
                 int dy = offset.y() + y;
                 if (dy < 0 || dy >= dst.getHeight()) continue;
@@ -102,7 +102,7 @@ public final class TBTextures {
             }
         }
 
-        private @Nullable NativeImage source(TBStyle.Layer layer) {
+        private @Nullable NativeImage source(TBTextureStyle.Layer layer) {
             Identifier path = layer.texture().withPrefix("textures/").withSuffix(".png");
 
             NativeImage cached = sources.get(path);

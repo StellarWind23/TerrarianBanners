@@ -7,5 +7,5 @@ public class TBMobBannerRenderState extends BlockEntityRenderState {
     public boolean standing;
     public float yaw;
     public float sway;
-    public Identifier texture = TBStyle.NULL_ID;
+    public Identifier texture = TBTextureStyle.NULL_ID;
 }

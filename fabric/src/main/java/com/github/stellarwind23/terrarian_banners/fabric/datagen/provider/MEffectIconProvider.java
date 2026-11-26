@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
-import com.github.stellarwind23.terrarian_banners.client.render.TBStyle;
+import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyle;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextures;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.google.common.hash.Hashing;
@@ -39,15 +39,15 @@ public class MEffectIconProvider implements DataProvider {
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
         BufferedImage background = read(BACKGROUND);
         if (background == null) throw new IllegalStateException("Missing effect icon background: " + BACKGROUND);
-        BufferedImage fallback = read(TBStyle.NULL_EMBLEM.texture());
+        BufferedImage fallback = read(TBTextureStyle.NULL_EMBLEM.texture());
 
         MBannerStyleProvider.buildStyles().forEach((mob, style) ->
                 write(cache, mob, compose(background, emblemFor(mob, style, fallback))));
         return CompletableFuture.completedFuture(null);
     }
 
-    private static @Nullable BufferedImage emblemFor(Identifier mob, TBStyle style, @Nullable BufferedImage fallback) {
-        for (TBStyle.Layer layer : style.layers()) {
+    private static @Nullable BufferedImage emblemFor(Identifier mob, TBTextureStyle style, @Nullable BufferedImage fallback) {
+        for (TBTextureStyle.Layer layer : style.layers()) {
             if (!layer.name().equals("emblem")) continue;
             BufferedImage image = read(layer.texture());
             if (image != null) return image;
