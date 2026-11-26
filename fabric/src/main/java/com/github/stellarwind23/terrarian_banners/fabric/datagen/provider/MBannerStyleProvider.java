@@ -63,14 +63,16 @@ public class MBannerStyleProvider implements DataProvider {
         put(out, EntityType.BREEZE, TBBannerStyle.fromLayers(b("cave", 0xaf94df), d("border", 0x9166df), d("thin_border", 0xFFFFFF), e(EntityType.BREEZE)));
 
         //Sky
-        put(out, EntityType.PHANTOM, TBBannerStyle.fromLayers(b("night", 0x43518a), d("border", 0x88ff00), d("thin_border", 0xFFFFFF), e(EntityType.PHANTOM)));
-        put(out, EntityType.HAPPY_GHAST, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xbcbcbc), d("thin_border", 0xFFFFFF), e(EntityType.HAPPY_GHAST)));
+        int skyColor = 0x87d9ea;
+        int skyNightColor = 0xffffff;
+
+        put(out, EntityType.PHANTOM, TBBannerStyle.fromLayers(b("night", skyNightColor), d("border", 0x43518a), d("thin_border", 0x88ff00), e(EntityType.PHANTOM)));
+        put(out, EntityType.HAPPY_GHAST, TBBannerStyle.fromLayers(b("sky", skyColor), d("border", 0xbcbcbc), d("thin_border", 0x99ccff), e(EntityType.HAPPY_GHAST)));
 
         //Forest
         put(out, EntityType.FOX, TBBannerStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xd5b69f), d("thin_border", 0xcc6920), e(EntityType.FOX)));
         put(out, EntityType.WOLF, TBBannerStyle.fromLayers(b("default", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
         put(out, EntityType.BEE, TBBannerStyle.fromLayers(b("default", 0xedc343), d("comb", 0xFC9600), d("border", 0x43241b), d("thin_border", 0xedc343), e(EntityType.BEE)));
-
             //Night
         put(out, EntityType.CREAKING, TBBannerStyle.fromLayers(b("night", 0x5f5f5f), d("mini_boss_border", 0xfc7812), d("thin_mini_boss_border", 0xFFFFFF), e(EntityType.CREAKING)));
 
