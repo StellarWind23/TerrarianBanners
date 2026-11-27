@@ -12,6 +12,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -22,8 +23,13 @@ import java.util.Set;
 public final class TBTextures {
 
     /** Loadable stand-in for the moments before the first reload has finished. */
-    public static final Identifier PLACEHOLDER = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "textures/entity/mob_banner/base/default.png");
+    public static final Identifier PLACEHOLDER = Identifier.fromNamespaceAndPath(
+            TerrarianBanners.MOD_ID, "textures/entity/mob_banner/base/default.png");
 
+    private record Bank(Map<Identifier, Identifier> byMob, Identifier fallback, List<Identifier> owned) { }
+
+    private static final Bank EMPTY = new Bank(Map.of(), PLACEHOLDER, List.of());
+    private static final Map<TBStyleType, Bank> BANKS = new EnumMap<>(TBStyleType.class);
     private static int nextId = 0;
 
     private TBTextures() { }
@@ -44,7 +50,7 @@ public final class TBTextures {
         if (old != null) old.owned().forEach(textures::release);
 
         try (Baker baker = new Baker(kind, manager)) {
-            Identifier fallback = kind.nullStyleId();
+            Identifier fallback = baker.get(TBTextureStyle.nullFor(kind));
             Map<Identifier, Identifier> byMob = new HashMap<>();
             styles.forEach((mob, style) -> byMob.put(mob, baker.get(style)));
             BANKS.put(kind, new Bank(Map.copyOf(byMob), fallback, List.copyOf(baker.baked.values())));

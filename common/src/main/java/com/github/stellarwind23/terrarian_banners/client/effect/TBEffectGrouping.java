@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.client.effect;
 
-import com.github.stellarwind23.terrarian_banners.client.render.TBStyleTypeManager;
+import com.github.stellarwind23.terrarian_banners.client.render.TBStyleType;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextures;
 import com.github.stellarwind23.terrarian_banners.content.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBMobBannerEffect;
@@ -25,8 +25,7 @@ import java.util.Objects;
 
 public final class TBEffectGrouping {
 
-    public static final Identifier GROUP_SPRITE =
-            Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "mob_effect/banner_group");
+    public static final Identifier GROUP_SPRITE = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "mob_effect/banner_group");
     private static final String SPRITE_PREFIX = "mob_effect/banner/";   // + <mob namespace>/<mob path>
     private static final String GROUP_NAME_KEY = "effect.terrarian_banners.banner_group";
     private static final int MIN_GROUP_SIZE = 3;
@@ -35,10 +34,12 @@ public final class TBEffectGrouping {
     private TBEffectGrouping() { }
 
     // ---- Which effects are banner effects ----
+
     public static boolean isBanner(MobEffectInstance instance) {
         return instance.getEffect().value() instanceof TBMobBannerEffect;
     }
 
+    /** Sorted by effect id, so the icon layout doesn't shuffle between frames. */
     private static List<MobEffectInstance> bannerEffects(Collection<MobEffectInstance> effects) {
         return effects.stream()
                 .filter(TBEffectGrouping::isBanner)
@@ -58,6 +59,7 @@ public final class TBEffectGrouping {
                 .toList();
     }
 
+    /** terrarian_banners:mob_effect/banner/minecraft/zombie -> minecraft:zombie; null for any other sprite. */
     private static @Nullable Identifier mobOf(Identifier sprite) {
         if (!sprite.getNamespace().equals(TerrarianBanners.MOD_ID)) return null;
         String path = sprite.getPath();
@@ -110,6 +112,7 @@ public final class TBEffectGrouping {
 
     // ---- Icons ----
 
+    /** Called for every sprite blit. Returns true if the sprite was one of ours and has been drawn. */
     public static boolean drawSprite(GuiGraphics g, RenderPipeline pipeline, Identifier sprite, int x, int y, int w, int h, int color) {
         if (GROUP_SPRITE.equals(sprite)) {
             drawGroup(g, pipeline, x, y, w, h, color);
@@ -122,7 +125,7 @@ public final class TBEffectGrouping {
     }
 
     private static void drawIcon(GuiGraphics g, RenderPipeline pipeline, Identifier mob, int x, int y, int w, int h, int color) {
-        int s = TBStyleTypeManager.INSTANCE.getType(Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "effect")).size();
+        int s = TBStyleType.EFFECT.size();
         g.blit(pipeline, TBTextures.effect(mob), x, y, 0.0F, 0.0F, w, h, s, s, s, s, color);
     }
 

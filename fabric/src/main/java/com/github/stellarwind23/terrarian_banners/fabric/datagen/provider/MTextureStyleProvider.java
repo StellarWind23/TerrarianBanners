@@ -1,5 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
+import com.github.stellarwind23.terrarian_banners.client.render.TBStyleType;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyle;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyle.Layer;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
@@ -12,7 +13,6 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
-import org.joml.Vector2i;
 import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
@@ -21,43 +21,35 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-public class MBannerStyleProvider implements DataProvider {
+public class MTextureStyleProvider implements DataProvider {
 
-    private final PackOutput.PathProvider pathProvider;
+    private final PackOutput.PathProvider bannerPaths;
+    private final PackOutput.PathProvider effectPaths;
 
-    public MBannerStyleProvider(FabricDataOutput output) {
-        this.pathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "tb_banner_styles");
+    public MTextureStyleProvider(FabricDataOutput output) {
+        this.bannerPaths = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, TBStyleType.MOB_BANNER.styleFolder());
+        this.effectPaths = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, TBStyleType.EFFECT.styleFolder());
     }
 
     @Override
     public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
-        Map<Identifier, TBTextureStyle> styles = new LinkedHashMap<>();
-
-        styles.put(TBTextureStyle.NULL_ID, TBTextureStyle.NULL_STYLE);
-
-        //Populate with default
+        Map<Identifier, TBTextureStyle> banners = new LinkedHashMap<>();
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBTextureStyle.NULL_STYLE);
+            if (TerrarianBanners.isBannerMob(type)) banners.put(id(type), TBTextureStyle.NULL_BANNER);
         }
-
-        //Hand written styles replace the generated ones
-        addStyles(styles);
+        addStyles(banners);   // hand-written styles replace the defaults
 
         List<CompletableFuture<?>> writes = new ArrayList<>();
-        styles.forEach((id, style) -> {
-            JsonElement json = TBTextureStyle.CODEC.encodeStart(JsonOps.INSTANCE, style).getOrThrow();
-            writes.add(DataProvider.saveStable(cache, json, pathProvider.json(id)));
+        banners.forEach((mob, style) -> {
+            writes.add(save(cache, bannerPaths, mob, style));
+            writes.add(save(cache, effectPaths, mob, TBTextureStyle.effectFrom(style)));
         });
         return CompletableFuture.allOf(writes.toArray(CompletableFuture[]::new));
     }
 
-    public static Map<Identifier, TBTextureStyle> buildStyles() {
-        Map<Identifier, TBTextureStyle> styles = new LinkedHashMap<>();
-        for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (TerrarianBanners.isBannerMob(type)) styles.put(id(type), TBTextureStyle.NULL_STYLE);
-        }
-        addStyles(styles);
-        return styles;
+    private static CompletableFuture<?> save(CachedOutput cache, PackOutput.PathProvider paths, Identifier mob, TBTextureStyle style) {
+        JsonElement json = TBTextureStyle.CODEC.encodeStart(JsonOps.INSTANCE, style).getOrThrow();
+        return DataProvider.saveStable(cache, json, paths.json(mob));
     }
 
     private static void addStyles(Map<Identifier, TBTextureStyle> out) {
@@ -200,9 +192,9 @@ public class MBannerStyleProvider implements DataProvider {
     }
 
     // ---- Layer helpers ----
-    private static Layer e(EntityType<?> type) { return Layer.defaultAsset("emblem", "entity/mob_banner/emblem/" + id(type).getPath(), new Vector2i(3, 12), new Vector2i(24, 12)); }
-    private static Layer b(String name, int rgb) { return Layer.defaultAsset("base","entity/mob_banner/base/" + name, new Vector2i(64, 64)).withColor(rgb); }
-    private static Layer d(String name, int rgb) { return Layer.defaultAsset(name, "entity/mob_banner/detail/" + name, new Vector2i(64, 64)).withColor(rgb); }
+    private static Layer e(EntityType<?> type) { return TBTextureStyle.bannerEmblem("entity/mob_banner/emblem/" + id(type).getPath()); }
+    private static Layer b(String variant, int rgb) { return Layer.mod("base", "entity/mob_banner/base/" + variant).withColor(rgb); }
+    private static Layer d(String name, int rgb) { return Layer.mod(name, "entity/mob_banner/detail/" + name).withColor(rgb); }
 
     private static void put(Map<Identifier, TBTextureStyle> out, EntityType<?> type, TBTextureStyle style) {
         out.put(id(type), style);
