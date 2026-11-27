@@ -1,0 +1,33 @@
+{
+  "layers": [
+    {
+      "color": "#51A03E",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/cave"
+    },
+    {
+      "color": "#7EBF6E",
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
+    },
+    {
+      "color": "#FFFFFF",
+      "name": "thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 3,
+          "y": 12
+        },
+        {
+          "x": 24,
+          "y": 12
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/slime"
+    }
+  ]
+}

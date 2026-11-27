@@ -1,0 +1,18 @@
+{
+  "layers": [
+    {
+      "name": "background",
+      "texture": "terrarian_banners:effect/background"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 1,
+          "y": 1
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/chicken"
+    }
+  ]
+}

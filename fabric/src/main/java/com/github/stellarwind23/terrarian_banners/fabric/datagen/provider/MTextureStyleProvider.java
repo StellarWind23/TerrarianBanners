@@ -64,8 +64,8 @@ public class MTextureStyleProvider implements DataProvider {
 
         //Forest
         put(out, EntityType.FOX, TBTextureStyle.fromLayers(b("sky", 0x99ccff), d("border", 0xd5b69f), d("thin_border", 0xcc6920), e(EntityType.FOX)));
-        put(out, EntityType.WOLF, TBTextureStyle.fromLayers(b("default", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
-        put(out, EntityType.BEE, TBTextureStyle.fromLayers(b("default", 0xedc343), d("comb", 0xFC9600), d("border", 0x43241b), d("thin_border", 0xedc343), e(EntityType.BEE)));
+        put(out, EntityType.WOLF, TBTextureStyle.fromLayers(b("plain", 0xd7d3d3), d("border", 0xceaf96), d("thin_border", 0xFFFFFF), e(EntityType.WOLF)));
+        put(out, EntityType.BEE, TBTextureStyle.fromLayers(b("plain", 0xedc343), d("comb", 0xFC9600), d("border", 0x43241b), d("thin_border", 0xedc343), e(EntityType.BEE)));
             //Night
         put(out, EntityType.CREAKING, TBTextureStyle.fromLayers(b("night", 0x5f5f5f), d("mini_boss_border", 0xfc7812), d("thin_mini_boss_border", 0xFFFFFF), e(EntityType.CREAKING)));
 
@@ -104,11 +104,11 @@ public class MTextureStyleProvider implements DataProvider {
 
         //Savanna
         put(out, EntityType.ARMADILLO, TBTextureStyle.fromLayers(b("sky", 0x99ccff), d("border", 0x824848), d("thin_border", 0xFFFFFF), e(EntityType.ARMADILLO)));
-        put(out, EntityType.LLAMA, TBTextureStyle.fromLayers(b("default", 0xc09e7d), d("border", 0x995f40), d("thin_border", 0xFFFFFF), e(EntityType.LLAMA)));
+        put(out, EntityType.LLAMA, TBTextureStyle.fromLayers(b("plain", 0xc09e7d), d("border", 0x995f40), d("thin_border", 0xFFFFFF), e(EntityType.LLAMA)));
 
         //Snow
         put(out, EntityType.STRAY, TBTextureStyle.fromLayers(b("night", 0x617677), d("hill", 0xf5fdfd), d("border", 0xddeaea), d("thin_border", 0xFFFFFF), e(EntityType.STRAY)));
-        put(out, EntityType.POLAR_BEAR, TBTextureStyle.fromLayers(b("default", 0xeeeede), d("hill", 0xf5fdfd), d("border", 0xd5d6cd), d("thin_border", 0xFFFFFF), e(EntityType.POLAR_BEAR)));
+        put(out, EntityType.POLAR_BEAR, TBTextureStyle.fromLayers(b("plain", 0xeeeede), d("hill", 0xf5fdfd), d("border", 0xd5d6cd), d("thin_border", 0xFFFFFF), e(EntityType.POLAR_BEAR)));
 
         //Desert
         put(out, EntityType.CAMEL, TBTextureStyle.fromLayers(b("sky", 0x99ccff), d("hill", 0xd7c99c), d("angled_border", 0xcb9337), d("thin_angled_border",0xfcc369), e(EntityType.CAMEL)));
@@ -131,7 +131,7 @@ public class MTextureStyleProvider implements DataProvider {
 
         //Golem
         put(out, EntityType.ALLAY, TBTextureStyle.fromLayers(b("sky", 0x00daff), d("border", 0x00adff), d("thin_border", 0xFFFFFF), e(EntityType.ALLAY)));
-        put(out, EntityType.COPPER_GOLEM, TBTextureStyle.fromLayers(b("default", 0xb05537), d("square_border", 0xbf6f54), d("thin_square_border", 0xe3826c), e(EntityType.COPPER_GOLEM)));
+        put(out, EntityType.COPPER_GOLEM, TBTextureStyle.fromLayers(b("plain", 0xb05537), d("square_border", 0xbf6f54), d("thin_square_border", 0xe3826c), e(EntityType.COPPER_GOLEM)));
         put(out, EntityType.IRON_GOLEM, TBTextureStyle.fromLayers(b("sky", 0xdbcdc2), d("square_border", 0x74a332), d("thin_square_border", 0xFFFFFF), e(EntityType.IRON_GOLEM)));
         put(out, EntityType.SNOW_GOLEM, TBTextureStyle.fromLayers(b("sky", 0xd9f2f2), d("square_border", 0x81a4a4), d("thin_square_border", 0xFFFFFF), e(EntityType.SNOW_GOLEM)));
 
@@ -146,7 +146,7 @@ public class MTextureStyleProvider implements DataProvider {
         //Swamp
         put(out, EntityType.BOGGED, TBTextureStyle.fromLayers(b("sky", 0x99ccff), d("hill", 0x8a9c72), d("lake", 0x2033bb), d("border", 0x314d1b), d("thin_border", 0xFFFFFF), e(EntityType.BOGGED)));
         put(out, EntityType.FROG, TBTextureStyle.fromLayers(b("sky", 0xd07444), d("border", 0xffc77c), d("thin_border", 0xFFFFFF), e(EntityType.FROG)));
-        put(out, EntityType.TADPOLE, TBTextureStyle.fromLayers(b("default", 0x6d533d), d("border", 0x160a00), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.TADPOLE)));
+        put(out, EntityType.TADPOLE, TBTextureStyle.fromLayers(b("plain", 0x6d533d), d("border", 0x160a00), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.TADPOLE)));
         put(out, EntityType.SLIME, TBTextureStyle.fromLayers(b("cave", 0x51a03e), d("border", 0x7ebf6e), d("thin_border", 0xFFFFFF), e(EntityType.SLIME)));
         put(out, EntityType.WITCH, TBTextureStyle.fromLayers(b("night", 0x340000), d("border", 0x51a03e), d("thin_border", 0xFFFFFF), e(EntityType.WITCH)));
 
@@ -165,7 +165,7 @@ public class MTextureStyleProvider implements DataProvider {
         put(out, EntityType.GUARDIAN, TBTextureStyle.fromLayers(b("ocean", oceanColor), d("bubble", oceanBubbleColor), d("square_border",0x5a8272 ), d("thin_square_border", 0xf17d30), e(EntityType.GUARDIAN)));
         put(out, EntityType.ELDER_GUARDIAN, TBTextureStyle.fromLayers(b("ocean", oceanColor), d("bubble", oceanBubbleColor), d("mini_boss_border", 0xceccba), d("thin_mini_boss_border", 0x747693), e(EntityType.ELDER_GUARDIAN)));
         put(out, EntityType.DROWNED, TBTextureStyle.fromLayers(b("ocean", oceanColor), d("bubble", oceanBubbleColor), d("border", 0x8ff1d7), d("thin_border", 0x799c65), e(EntityType.DROWNED)));
-        put(out, EntityType.PUFFERFISH, TBTextureStyle.fromLayers(b("default", 0xf6b201), d("border", 0x37c3f2), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.PUFFERFISH)));
+        put(out, EntityType.PUFFERFISH, TBTextureStyle.fromLayers(b("plain", 0xf6b201), d("border", 0x37c3f2), d("bubble", 0xb4ecdf), d("thin_border", 0xFFFFFF), e(EntityType.PUFFERFISH)));
 
         //End
         int endColor = 0x6c5194;
@@ -176,17 +176,17 @@ public class MTextureStyleProvider implements DataProvider {
         put(out, EntityType.SHULKER, TBTextureStyle.fromLayers(b("end", endColor), d("border", 0x8e618e), d("thin_border", 0xd0d393), e(EntityType.SHULKER)));
 
         //Pillager
-        put(out, EntityType.VEX, TBTextureStyle.fromLayers(b("default", 0x7a90a4), d("border", 0xe8edf1), d("thin_border", 0xFFFFFF), e(EntityType.VEX)));
-        put(out, EntityType.VINDICATOR, TBTextureStyle.fromLayers(b("default", 0x959b9b), d("border", 0x275e61), d("thin_border", 0xFFFFFF), e(EntityType.VINDICATOR)));
-        put(out, EntityType.EVOKER, TBTextureStyle.fromLayers(b("default", 0x959b9b), d("border", 0x1e1c1a), d("thin_border", 0xFFFFFF), e(EntityType.EVOKER)));
-        put(out, EntityType.PILLAGER, TBTextureStyle.fromLayers(b("default", 0x532f36), d("border", 0x959b9b), d("thin_border", 0xFFFFFF), e(EntityType.PILLAGER)));
-        put(out, EntityType.RAVAGER, TBTextureStyle.fromLayers(b("default", 0x757470), d("border", 0x5b5049), d("thin_border", 0xFFFFFF), e(EntityType.RAVAGER)));
+        put(out, EntityType.VEX, TBTextureStyle.fromLayers(b("plain", 0x7a90a4), d("border", 0xe8edf1), d("thin_border", 0xFFFFFF), e(EntityType.VEX)));
+        put(out, EntityType.VINDICATOR, TBTextureStyle.fromLayers(b("plain", 0x959b9b), d("border", 0x275e61), d("thin_border", 0xFFFFFF), e(EntityType.VINDICATOR)));
+        put(out, EntityType.EVOKER, TBTextureStyle.fromLayers(b("plain", 0x959b9b), d("border", 0x1e1c1a), d("thin_border", 0xFFFFFF), e(EntityType.EVOKER)));
+        put(out, EntityType.PILLAGER, TBTextureStyle.fromLayers(b("plain", 0x532f36), d("border", 0x959b9b), d("thin_border", 0xFFFFFF), e(EntityType.PILLAGER)));
+        put(out, EntityType.RAVAGER, TBTextureStyle.fromLayers(b("plain", 0x757470), d("border", 0x5b5049), d("thin_border", 0xFFFFFF), e(EntityType.RAVAGER)));
 
         //Villager
         put(out, EntityType.VILLAGER, TBTextureStyle.fromLayers(b("sky", 0x563c33), d("angled_border", 0xbd8b72), d("thin_angled_border", 0xFFFFFF), e(EntityType.VILLAGER)));
         put(out, EntityType.WANDERING_TRADER, TBTextureStyle.fromLayers(b("sky", 0x456296), d("angled_border", 0xeaa430), d("thin_angled_border", 0xFFFFFF), e(EntityType.WANDERING_TRADER)));
         put(out, EntityType.TRADER_LLAMA, TBTextureStyle.fromLayers(b("sky", 0xeaa430), d("angled_border", 0x456296), d("thin_angled_border", 0xFFFFFF), e(EntityType.TRADER_LLAMA)));
-        put(out, EntityType.CAT, TBTextureStyle.fromLayers(b("default", 0xefc88e), d("angled_border", 0x957256), d("thin_angled_border", 0xFFFFFF), e(EntityType.CAT)));
+        put(out, EntityType.CAT, TBTextureStyle.fromLayers(b("plain", 0xefc88e), d("angled_border", 0x957256), d("thin_angled_border", 0xFFFFFF), e(EntityType.CAT)));
             //Night
         put(out, EntityType.ZOMBIE_VILLAGER, TBTextureStyle.fromLayers(b("night", 0x563c33), d("angled_border", 0x799c65), d("thin_angled_border", 0xFFFFFF), e(EntityType.ZOMBIE_VILLAGER)));
     }

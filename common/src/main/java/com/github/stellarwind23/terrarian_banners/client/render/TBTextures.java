@@ -24,7 +24,7 @@ public final class TBTextures {
 
     /** Loadable stand-in for the moments before the first reload has finished. */
     public static final Identifier PLACEHOLDER = Identifier.fromNamespaceAndPath(
-            TerrarianBanners.MOD_ID, "textures/entity/mob_banner/base/default.png");
+            TerrarianBanners.MOD_ID, "textures/entity/mob_banner/base/plain.png");
 
     private record Bank(Map<Identifier, Identifier> byMob, Identifier fallback, List<Identifier> owned) { }
 

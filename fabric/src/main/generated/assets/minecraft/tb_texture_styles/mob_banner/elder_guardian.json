@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "color": "#2033BB",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/ocean"
+    },
+    {
+      "color": "#B4ECDF",
+      "name": "bubble",
+      "texture": "terrarian_banners:entity/mob_banner/detail/bubble"
+    },
+    {
+      "color": "#CECCBA",
+      "name": "mini_boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/mini_boss_border"
+    },
+    {
+      "color": "#747693",
+      "name": "thin_mini_boss_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_mini_boss_border"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 3,
+          "y": 12
+        },
+        {
+          "x": 24,
+          "y": 12
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/elder_guardian"
+    }
+  ]
+}

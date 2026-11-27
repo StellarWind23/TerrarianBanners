@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "color": "#87D9EA",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/sky"
+    },
+    {
+      "color": "#447E1F",
+      "name": "hill",
+      "texture": "terrarian_banners:entity/mob_banner/detail/hill"
+    },
+    {
+      "color": "#C09E7D",
+      "name": "angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/angled_border"
+    },
+    {
+      "color": "#EEE500",
+      "name": "thin_angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_angled_border"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 3,
+          "y": 12
+        },
+        {
+          "x": 24,
+          "y": 12
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/horse"
+    }
+  ]
+}

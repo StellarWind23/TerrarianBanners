@@ -93,7 +93,7 @@ public record TBTextureStyle(List<Layer> layers) {
     private static final Offset BANNER_EMBLEM_BACK = new Offset(24, 12);
     private static final Offset EFFECT_EMBLEM = new Offset(1, 1);
 
-    public static final Layer NULL_EMBLEM = Layer.mod("emblem", "entity/mob_banner/emblem/default");
+    public static final Layer NULL_EMBLEM = Layer.mod("emblem", "entity/mob_banner/emblem/null");
     public static final Layer EFFECT_BACKGROUND = Layer.mod("background", "effect/background");
 
     /** An emblem placed on both faces of the flag. */
@@ -107,8 +107,9 @@ public record TBTextureStyle(List<Layer> layers) {
     }
 
     // Placeholders for mobs without a style
+    public static Identifier NULL_ID = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "null");
     public static final TBTextureStyle NULL_BANNER = fromLayers(
-            Layer.mod("base", "entity/mob_banner/base/default").withColor(TextColor.fromLegacyFormat(ChatFormatting.BLACK)),
+            Layer.mod("base", "entity/mob_banner/base/plain").withColor(TextColor.fromLegacyFormat(ChatFormatting.BLACK)),
             Layer.mod("border", "entity/mob_banner/detail/border").withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_PURPLE)),
             Layer.mod("thin_border", "entity/mob_banner/detail/thin_border").withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)),
             NULL_EMBLEM.at(BANNER_EMBLEM_FRONT, BANNER_EMBLEM_BACK)

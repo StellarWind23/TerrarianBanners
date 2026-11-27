@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "color": "#095656",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/cave"
+    },
+    {
+      "color": "#B4ECDF",
+      "name": "bubble",
+      "texture": "terrarian_banners:entity/mob_banner/detail/bubble"
+    },
+    {
+      "color": "#85F1BC",
+      "name": "border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/border"
+    },
+    {
+      "color": "#FFFFFF",
+      "name": "thin_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_border"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 3,
+          "y": 12
+        },
+        {
+          "x": 24,
+          "y": 12
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/glow_squid"
+    }
+  ]
+}

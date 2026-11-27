@@ -1,0 +1,33 @@
+{
+  "layers": [
+    {
+      "color": "#563C33",
+      "name": "base",
+      "texture": "terrarian_banners:entity/mob_banner/base/sky"
+    },
+    {
+      "color": "#BD8B72",
+      "name": "angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/angled_border"
+    },
+    {
+      "color": "#FFFFFF",
+      "name": "thin_angled_border",
+      "texture": "terrarian_banners:entity/mob_banner/detail/thin_angled_border"
+    },
+    {
+      "name": "emblem",
+      "offsets": [
+        {
+          "x": 3,
+          "y": 12
+        },
+        {
+          "x": 24,
+          "y": 12
+        }
+      ],
+      "texture": "terrarian_banners:entity/mob_banner/emblem/villager"
+    }
+  ]
+}
