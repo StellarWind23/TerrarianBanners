@@ -23,12 +23,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class MTextureStyleProvider implements DataProvider {
 
-    private final PackOutput.PathProvider bannerPaths;
-    private final PackOutput.PathProvider effectPaths;
+    private final Map<TBStyleType, PackOutput.PathProvider> paths = new LinkedHashMap<>();
 
     public MTextureStyleProvider(FabricDataOutput output) {
-        this.bannerPaths = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, TBStyleType.MOB_BANNER.styleFolder());
-        this.effectPaths = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, TBStyleType.EFFECT.styleFolder());
+        for (TBStyleType type : TBStyleType.all()) {
+            paths.put(type, output.createPathProvider(PackOutput.Target.RESOURCE_PACK, type.styleFolder()));
+        }
     }
 
     @Override
@@ -40,10 +40,7 @@ public class MTextureStyleProvider implements DataProvider {
         addStyles(banners);   // hand-written styles replace the defaults
 
         List<CompletableFuture<?>> writes = new ArrayList<>();
-        banners.forEach((mob, style) -> {
-            writes.add(save(cache, bannerPaths, mob, style));
-            writes.add(save(cache, effectPaths, mob, TBTextureStyle.effectFrom(style)));
-        });
+        banners.forEach((mob, style) -> paths.forEach((type, provider) -> writes.add(save(cache, provider, mob, type.derive(style)))));
         return CompletableFuture.allOf(writes.toArray(CompletableFuture[]::new));
     }
 

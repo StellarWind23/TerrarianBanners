@@ -4,6 +4,7 @@ import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
+import com.github.stellarwind23.terrarian_banners.content.effect.TBBannerAura;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -88,12 +89,9 @@ public class MobBannerBlockEntity extends BlockEntity {
         EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getOptional(be.mob).orElse(null);
         if (type == null || !type.is(TBTags.HAS_BANNER)) return;   // the tag disables mobs via datapack
 
-        Holder<MobEffect> effect = TBEffects.holderFor(type);
-        if (effect == null) return;
-
         AABB area = new AABB(pos).inflate(TBConfig.effect_radius);
         for (Player player : level.getEntitiesOfClass(Player.class, area)) {
-            player.addEffect(new MobEffectInstance(effect, (int) (TBConfig.effect_duration_seconds * 20D), 0, true, false, true));
+            TBBannerAura.grant(player, EntityType.getKey(type));
         }
     }
 }

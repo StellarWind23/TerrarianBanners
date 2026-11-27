@@ -12,7 +12,6 @@ import org.jspecify.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -29,7 +28,7 @@ public final class TBTextures {
     private record Bank(Map<Identifier, Identifier> byMob, Identifier fallback, List<Identifier> owned) { }
 
     private static final Bank EMPTY = new Bank(Map.of(), PLACEHOLDER, List.of());
-    private static final Map<TBStyleType, Bank> BANKS = new EnumMap<>(TBStyleType.class);
+    private static final Map<TBStyleType, Bank> BANKS = new HashMap<>();
     private static int nextId = 0;
 
     private TBTextures() { }
@@ -37,37 +36,37 @@ public final class TBTextures {
     public static Identifier banner(@Nullable Identifier mob) { return get(TBStyleType.MOB_BANNER, mob); }
     public static Identifier effect(@Nullable Identifier mob) { return get(TBStyleType.EFFECT, mob); }
 
-    /** Render thread. Mobs without a style get the kind's null texture. */
-    public static Identifier get(TBStyleType kind, @Nullable Identifier mob) {
-        Bank bank = BANKS.getOrDefault(kind, EMPTY);
+    /** Render thread. Mobs without a style get the type's null texture. */
+    public static Identifier get(TBStyleType type, @Nullable Identifier mob) {
+        Bank bank = BANKS.getOrDefault(type, EMPTY);
         return mob == null ? bank.fallback() : bank.byMob().getOrDefault(mob, bank.fallback());
     }
 
-    /** Main thread, from a style manager's apply(). Rebuilds every texture of one kind. */
-    public static void reload(TBStyleType kind, Map<Identifier, TBTextureStyle> styles, ResourceManager manager) {
+    /** Main thread, from a style manager's apply(). Rebuilds every texture of one type. */
+    public static void reload(TBStyleType type, Map<Identifier, TBTextureStyle> styles, ResourceManager manager) {
         TextureManager textures = Minecraft.getInstance().getTextureManager();
-        Bank old = BANKS.remove(kind);
+        Bank old = BANKS.remove(type);
         if (old != null) old.owned().forEach(textures::release);
 
-        try (Baker baker = new Baker(kind, manager)) {
-            Identifier fallback = baker.get(TBTextureStyle.nullFor(kind));
+        try (Baker baker = new Baker(type, manager)) {
+            Identifier fallback = baker.get(type.nullStyle());
             Map<Identifier, Identifier> byMob = new HashMap<>();
             styles.forEach((mob, style) -> byMob.put(mob, baker.get(style)));
-            BANKS.put(kind, new Bank(Map.copyOf(byMob), fallback, List.copyOf(baker.baked.values())));
+            BANKS.put(type, new Bank(Map.copyOf(byMob), fallback, List.copyOf(baker.baked.values())));
         }
     }
 
-    /** One per reload and kind. Decodes each source PNG once; styles that compare equal share one texture. */
+    /** One per reload and type. Decodes each source PNG once; styles that compare equal share one texture. */
     private static final class Baker implements AutoCloseable {
 
-        private final TBStyleType kind;
+        private final TBStyleType type;
         private final ResourceManager manager;
         private final Map<Identifier, NativeImage> sources = new HashMap<>();
         private final Set<Identifier> missing = new HashSet<>();
         private final Map<TBTextureStyle, Identifier> baked = new HashMap<>();
 
-        Baker(TBStyleType kind, ResourceManager manager) {
-            this.kind = kind;
+        Baker(TBStyleType type, ResourceManager manager) {
+            this.type = type;
             this.manager = manager;
         }
 
@@ -76,10 +75,10 @@ public final class TBTextures {
         }
 
         private Identifier bake(TBTextureStyle style) {
-            NativeImage image = new NativeImage(kind.size(), kind.size(), true);   // zero-filled = transparent
+            NativeImage image = new NativeImage(type.width(), type.height(), true);   // zero-filled = transparent
             for (TBTextureStyle.Layer layer : style.layers()) composite(image, layer);
 
-            Identifier id = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "dynamic/" + kind.folder() + "/" + nextId++);
+            Identifier id = Identifier.fromNamespaceAndPath(TerrarianBanners.MOD_ID, "dynamic/" + type.id() + "/" + nextId++);
             Minecraft.getInstance().getTextureManager().register(id, new DynamicTexture(id::toString, image));
             return id;
         }
@@ -127,9 +126,9 @@ public final class TBTextures {
             }
             try (InputStream in = resource.get().open()) {
                 NativeImage image = NativeImage.read(in);
-                if (image.getWidth() > kind.size() || image.getHeight() > kind.size()) {
+                if (image.getWidth() > type.width() || image.getHeight() > type.height()) {
                     TerrarianBanners.LOGGER.warn("Texture layer {} is {}x{}, larger than the {}x{} {} canvas",
-                            path, image.getWidth(), image.getHeight(), kind.size(), kind.size(), kind.folder());
+                            path, image.getWidth(), image.getHeight(), type.width(), type.height(), type.id());
                 }
                 sources.put(path, image);
                 return image;

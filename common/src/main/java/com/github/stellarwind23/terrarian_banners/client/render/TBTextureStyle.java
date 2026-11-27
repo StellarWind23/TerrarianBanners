@@ -8,10 +8,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.Identifier;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.function.UnaryOperator;
 
 /** Layers are drawn in list order: the first is the bottom layer, the last is on top. */
 public record TBTextureStyle(List<Layer> layers) {
@@ -114,12 +112,24 @@ public record TBTextureStyle(List<Layer> layers) {
             Layer.mod("thin_border", "entity/mob_banner/detail/thin_border").withColor(TextColor.fromLegacyFormat(ChatFormatting.LIGHT_PURPLE)),
             NULL_EMBLEM.at(BANNER_EMBLEM_FRONT, BANNER_EMBLEM_BACK)
     );
-    public static final TBTextureStyle NULL_EFFECT = effectFrom(NULL_BANNER);
 
-    public static TBTextureStyle nullFor(TBStyleType kind) {
-        return switch (kind) {
-            case MOB_BANNER -> NULL_BANNER;
-            case EFFECT -> NULL_EFFECT;
+    /** Non-emblem layers get their texture path remapped; the emblem keeps its texture but gets new offsets. */
+    public static UnaryOperator<TBTextureStyle> remapper(String fromPrefix, String toPrefix,
+                                                         List<Offset> emblemOffsets, List<Layer> leading) {
+        return banner -> {
+            List<Layer> out = new ArrayList<>(leading);
+            for (Layer layer : banner.layers()) {
+                if (layer.name().equals("emblem")) {
+                    out.add(new Layer(layer.name(), layer.texture(), emblemOffsets, layer.color()));
+                    continue;
+                }
+                Identifier tex = layer.texture();
+                if (tex.getNamespace().equals(TerrarianBanners.MOD_ID) && tex.getPath().startsWith(fromPrefix)) {
+                    tex = tex.withPath(toPrefix + tex.getPath().substring(fromPrefix.length()));
+                }
+                out.add(new Layer(layer.name(), tex, layer.offsets(), layer.color()));
+            }
+            return new TBTextureStyle(out);
         };
     }
 

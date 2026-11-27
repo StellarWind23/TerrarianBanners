@@ -6,7 +6,8 @@
   "client": [
     "client.EffectsInInventoryMixin",
     "client.GuiGraphicsMixin",
-    "client.GuiMixin"
+    "client.GuiMixin",
+    "client.ShieldSpecialRendererMixin"
   ],
   "mixins": [
     "LivingEntityMixin"

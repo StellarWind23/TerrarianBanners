@@ -1,5 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.content;
 
+import com.github.stellarwind23.terrarian_banners.content.component.ShieldMobBanner;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -15,6 +16,7 @@ public class TBComponentTypes {
     protected static DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES;
 
     public static RegistrySupplier<DataComponentType<Identifier>> MOB_BANNER;
+    public static RegistrySupplier<DataComponentType<ShieldMobBanner>> SHIELD_MOB_BANNER;
 
     public static void init() {
         DATA_COMPONENT_TYPES = DeferredRegister.create(TerrarianBanners.MOD_ID, Registries.DATA_COMPONENT_TYPE);
@@ -24,6 +26,9 @@ public class TBComponentTypes {
         MOB_BANNER = registerComponent("mob_banner", (builder) -> builder
                 .persistent(Identifier.CODEC)
                 .networkSynchronized(Identifier.STREAM_CODEC));
+
+        SHIELD_MOB_BANNER = registerComponent("shield_banner", b -> b
+                .persistent(ShieldMobBanner.CODEC).networkSynchronized(ShieldMobBanner.STREAM_CODEC));
 
         //Register stuff here ▲▲▲
 
