@@ -2,7 +2,7 @@ package com.github.stellarwind23.terrarian_banners.client.effect;
 
 import com.github.stellarwind23.terrarian_banners.client.render.TBStyleType;
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextures;
-import com.github.stellarwind23.terrarian_banners.content.TBEffects;
+import com.github.stellarwind23.terrarian_banners.content.effect.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBMobBannerEffect;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.mojang.blaze3d.pipeline.RenderPipeline;

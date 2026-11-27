@@ -1,8 +1,12 @@
 package com.github.stellarwind23.terrarian_banners.init;
 
-import com.github.stellarwind23.terrarian_banners.content.*;
+import com.github.stellarwind23.terrarian_banners.content.block.TBBlocks;
 import com.github.stellarwind23.terrarian_banners.content.component.ShieldMobBanner;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBBannerAura;
+import com.github.stellarwind23.terrarian_banners.content.effect.TBEffects;
+import com.github.stellarwind23.terrarian_banners.content.item.TBItems;
+import com.github.stellarwind23.terrarian_banners.content.item.TBTab;
 import com.github.stellarwind23.terrarian_banners.event.BannerDropHandler;
 import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.event.events.common.TickEvent;

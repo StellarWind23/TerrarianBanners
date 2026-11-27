@@ -1,13 +1,10 @@
 package com.github.stellarwind23.terrarian_banners.content.block;
 
-import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBEffects;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
 import com.github.stellarwind23.terrarian_banners.content.effect.TBBannerAura;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
@@ -17,8 +14,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;

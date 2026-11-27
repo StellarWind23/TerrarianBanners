@@ -2,7 +2,7 @@ package com.github.stellarwind23.terrarian_banners.client.init;
 
 import com.github.stellarwind23.terrarian_banners.client.render.TBTextureStyleManager;
 import com.github.stellarwind23.terrarian_banners.client.render.TBMobBannerRenderer;
-import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
+import com.github.stellarwind23.terrarian_banners.content.block.TBBlockEntityTypes;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import dev.architectury.registry.ReloadListenerRegistry;
 import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;

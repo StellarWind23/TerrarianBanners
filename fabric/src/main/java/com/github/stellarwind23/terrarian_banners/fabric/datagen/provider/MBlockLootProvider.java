@@ -1,8 +1,8 @@
 package com.github.stellarwind23.terrarian_banners.fabric.datagen.provider;
 
-import com.github.stellarwind23.terrarian_banners.content.TBBlocks;
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBItems;
+import com.github.stellarwind23.terrarian_banners.content.block.TBBlocks;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
+import com.github.stellarwind23.terrarian_banners.content.item.TBItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;

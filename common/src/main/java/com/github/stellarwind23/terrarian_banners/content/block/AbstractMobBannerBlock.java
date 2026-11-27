@@ -1,8 +1,7 @@
 package com.github.stellarwind23.terrarian_banners.content.block;
 
-import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBItems;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
+import com.github.stellarwind23.terrarian_banners.content.item.TBItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;

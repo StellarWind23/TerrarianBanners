@@ -1,6 +1,5 @@
-package com.github.stellarwind23.terrarian_banners.content;
+package com.github.stellarwind23.terrarian_banners.content.block;
 
-import com.github.stellarwind23.terrarian_banners.content.block.MobBannerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.function.Supplier;

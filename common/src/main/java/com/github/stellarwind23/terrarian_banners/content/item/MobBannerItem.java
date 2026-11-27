@@ -1,7 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.content.item;
 
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBItems;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;

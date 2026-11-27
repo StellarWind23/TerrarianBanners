@@ -1,6 +1,5 @@
 package com.github.stellarwind23.terrarian_banners.content.effect;
 
-import com.github.stellarwind23.terrarian_banners.content.TBEffects;
 import com.github.stellarwind23.terrarian_banners.content.TBTags;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;
 import net.minecraft.core.Holder;

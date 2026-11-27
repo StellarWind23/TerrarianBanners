@@ -1,6 +1,6 @@
 package com.github.stellarwind23.terrarian_banners.client.render;
 
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.serialization.MapCodec;

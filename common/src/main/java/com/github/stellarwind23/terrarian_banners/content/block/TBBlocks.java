@@ -1,8 +1,6 @@
-package com.github.stellarwind23.terrarian_banners.content;
+package com.github.stellarwind23.terrarian_banners.content.block;
 
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
-import com.github.stellarwind23.terrarian_banners.content.block.MobBannerBlock;
-import com.github.stellarwind23.terrarian_banners.content.block.MobWallBannerBlock;
 import com.github.stellarwind23.terrarian_banners.util.MBlock;
 import com.github.stellarwind23.terrarian_banners.util.MBlockGroup;
 import com.github.stellarwind23.terrarian_banners.util.MBlockProps;

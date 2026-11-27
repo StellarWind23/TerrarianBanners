@@ -1,9 +1,9 @@
 package com.github.stellarwind23.terrarian_banners.content.crafting;
 
-import com.github.stellarwind23.terrarian_banners.content.TBComponentTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBItems;
-import com.github.stellarwind23.terrarian_banners.content.TBShields;
+import com.github.stellarwind23.terrarian_banners.content.component.TBComponentTypes;
+import com.github.stellarwind23.terrarian_banners.content.item.TBItems;
 import com.github.stellarwind23.terrarian_banners.content.component.ShieldMobBanner;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
@@ -19,10 +19,10 @@ public class ShieldAddMobBannerRecipe extends CustomRecipe {
     public ShieldAddMobBannerRecipe(CraftingBookCategory category) { super(category); }
 
     @Override
-    public boolean matches(CraftingInput input, Level level) { return !assemble(input).isEmpty(); }
+    public boolean matches(@NonNull CraftingInput input, Level level) { return !assemble(input, level.registryAccess()).isEmpty(); }
 
     @Override
-    public ItemStack assemble(CraftingInput input) {
+    public ItemStack assemble(CraftingInput input, HolderLookup.@NonNull Provider provider) {
         ItemStack shield = ItemStack.EMPTY, banner = ItemStack.EMPTY;
         for (int i = 0; i < input.size(); i++) {
             ItemStack s = input.getItem(i);

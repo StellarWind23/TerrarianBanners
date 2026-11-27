@@ -2,8 +2,8 @@ package com.github.stellarwind23.terrarian_banners.neoforge;
 
 import com.github.stellarwind23.terrarian_banners.client.init.TerrarianBannersClientInit;
 import com.github.stellarwind23.terrarian_banners.client.render.TBMobBannerSpecialRenderer;
-import com.github.stellarwind23.terrarian_banners.content.TBBlockEntityTypes;
-import com.github.stellarwind23.terrarian_banners.content.TBBlocks;
+import com.github.stellarwind23.terrarian_banners.content.block.TBBlockEntityTypes;
+import com.github.stellarwind23.terrarian_banners.content.block.TBBlocks;
 import com.github.stellarwind23.terrarian_banners.content.block.MobBannerBlockEntity;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.github.stellarwind23.terrarian_banners.util.TBConfig;

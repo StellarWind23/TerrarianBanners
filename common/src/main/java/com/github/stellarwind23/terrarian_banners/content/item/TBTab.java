@@ -1,6 +1,6 @@
-package com.github.stellarwind23.terrarian_banners.content;
+package com.github.stellarwind23.terrarian_banners.content.item;
 
-import com.github.stellarwind23.terrarian_banners.content.item.MobBannerItem;
+import com.github.stellarwind23.terrarian_banners.content.TBTags;
 import com.github.stellarwind23.terrarian_banners.init.TerrarianBanners;
 import com.github.stellarwind23.terrarian_banners.util.MTranslation;
 import dev.architectury.registry.CreativeTabRegistry;
